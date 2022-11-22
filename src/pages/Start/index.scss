@@ -162,7 +162,7 @@
     }
 
     .StarsMobil {
-      display: none !important;
+      display: none!important;
     }
   }
 }
@@ -249,12 +249,14 @@
       }
 
       .Stars {
-
-        display: inherit !important;
+        display: none!important;
       }
 
       .StarsMobil {
-        display: none !important;
+        display: inherit!important;
+        img{
+          width: 50%;
+        }
       }
     }
     .FinalCard{
@@ -267,108 +269,119 @@
     }
   }
 
-
 }
 
 @media screen and (max-width: 724px) {
-  .hand-icon {
-    width: 180px;
-    height: 150px;
-  }
-  .MainTitle {
-    font-size: 24px;
-    margin-bottom: 42px;
-  }
-  .HelloText {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    text-align: center;
-    margin-top: 35px;
-  }
-  .MainButton {
-    width: 104px;
-    font-size: 14px;
-    margin-right: inherit !important;
-  }
-  .SecondaryButton {
-    width: 104px;
-    font-size: 14px;
-  }
-  .InfoTitle {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    margin-bottom: 24px;
-  }
-  .InfoText {
-    margin-left: 0.5rem !important;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-  }
-  .FinalCardTitle {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-  }
-  .InfoSubtext {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-  }
+  .ContainerLanding {
 
-  .HelloCard {
-    width: 100%;
+    .Landing {
+
+      .LandingCardFlex {
+
+        .InfoTitle {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 22px;
+          margin-bottom: 24px;
+        }
+
+        .HelloCard {
+          width: 100%;
+
+          .HelloText {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 22px;
+            text-align: center;
+            margin-top: 35px;
+          }
+        }
+
+        .point-wrapper {
+
+          .InfoText {
+            margin-left: 0.5rem !important;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+
+        &.FirstBlock {
+          .Desires {
+            .MainTitle {
+              font-size: 24px;
+              margin-bottom: 42px;
+            }
+
+            .FlexButton {
+              .SecondaryButton {
+                width: 104px;
+                font-size: 14px;
+              }
+
+              .MainButton {
+                width: 104px;
+                font-size: 14px;
+                margin-right: inherit !important;
+
+              }
+            }
+          }
+        }
+      }
+
+
+      .FinalCard {
+        .FinalCardTitle {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 22px;
+        }
+      }
+
+    }
   }
 }
 
-@media screen and (max-width: 575px) {
-  .MainTitle {
-    font-size: 24px;
-    margin-bottom: 42px;
-  }
-  .SecondaryButton {
-    width: 104px;
-    font-size: 14px;
-  }
-  .MainButton {
-    width: 104px;
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 461px) {
-  .MainButton {
-    width: 104px;
-    font-size: 14px;
-  }
-  .SecondaryButton {
-    font-size: 14px;
-  }
-}
 
 @media screen and (max-width: 375px) {
-  .MainTitle {
-    font-size: 24px;
-  }
-  .InfoText {
-    font-size: 16px;
-  }
-  .MainButton {
-    width: 104px;
-    font-size: 13px;
-  }
-  .SecondaryButton {
-    font-size: 13px;
+  .ContainerLanding {
+    .Landing {
+      .LandingCardFlex {
+        .point-wrapper {
+          .InfoText {
+            font-size: 16px;
+          }
+        }
+        &.FirstBlock {
+          .Desires {
+            .FlexButton {
+              .SecondaryButton {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+
+    }
   }
 }
 
 @media screen and (max-width: 331px) {
-  .MainButton {
-    width: 104px;
-    margin-right: inherit !important;
-  }
+  .ContainerLanding {
+    .Landing {
+      .LandingCardFlex {
+        &.FirstBlock {
+          .Desires {
+              .MainButton {
+                width: 104px;
+                margin-right: inherit !important;
+              }
+            }
+          }
+        }
+      }
+    }
 }

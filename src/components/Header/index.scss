@@ -1,40 +1,3 @@
-
-.BackText {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  white-space: nowrap;
-  transition: all 1s;
-  width: 0
-}
-
-.TrajectoriesLinkBack:hover {
-  .BackText {
-    color: #8533FF;
-  }
-
-  .BackArrow .color {
-    stroke: #8533FF !important;
-  }
-}
-
-.BackArrow {
-  margin-right: 4px;
-}
-
-
-.TrajectoriesLinkBack {
-  transition: all 2s;
-  position: absolute;
-  left: 0;
-}
-
-.TrajectoriesLinkBack.preAnimated {
-  left: -100%;
-}
-
 .Header {
   padding: 24px 0 0 0;
   position: relative;
@@ -44,85 +7,96 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  .Logo {
+    &.preAnimated {
+      right: calc(100% - 209px);
+      width: 209px;
+    }
+    transition: all 2s;
+    position: absolute;
+    right: -134px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 209px;
+    overflow: hidden;
+
+    .LogoImg {
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .LogoText {
+      transition: all 2s;
+      margin: 0;
+      padding: 0;
+      margin-left: 24px;
+      font-size: 18px;
+      font-weight: normal;
+      flex-shrink: 0;
+    }
+  }
+  .TrajectoriesLinkBack{
+    transition: all 2s;
+    position: absolute;
+    left: 0;
+    &.preAnimated {
+      left: -100%;
+    }
+    .BackArrow {
+      margin-right: 4px;
+    }
+    .BackText {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+      white-space: nowrap;
+      transition: all 1s;
+      width: 0
+    }
+    &:hover {
+    .BackText {
+      color: #8533FF;
+    }
+
+    .BackArrow .color {
+      stroke: #8533FF !important;
+    }
+  }
+  }
 }
 
-.Logo {
-  transition: all 2s;
-  position: absolute;
-  right: -134px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 209px;
-  overflow: hidden;
-}
-
-.LogoImg {
-  flex-shrink: 0;
-  cursor: pointer;
-}
-
-.LogoText {
-  transition: all 2s;
-  margin: 0;
-  padding: 0;
-  margin-left: 24px;
-  font-size: 18px;
-  font-weight: normal;
-  flex-shrink: 0;
-}
-
-.Logo.preAnimated {
-  right: calc(100% - 209px);
-  width: 209px;
-}
 
 @media screen and (max-width: 765px) {
 
-  .Logo {
-    transition: initial;
-  }
-  .Logo.preAnimated {
-    right: inherit;
-    width: 100%;
-  }
-  .TrajectoriesLinkBack.preAnimated {
-    left: 0;
-  }
   .Header {
     width: inherit;
     padding: inherit;
-  }
-  .BackText {
-    display: none;
-  }
-  .LogoImg {
-    /*width: 5em;*/
-  }
-  .Logo {
-    top: inherit;
-    transform: inherit;
-    right: inherit;
-    left: inherit;
-    position: inherit;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .LogoText {
-    /*font-size: 16px;*/
-    /*margin-left: 10px;*/
+    .Logo {
+      transition: initial;
+      top: inherit;
+      transform: inherit;
+      right: inherit;
+      left: inherit;
+      position: inherit;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      &.preAnimated {
+        right: inherit;
+        width: 100%;
+      }
+    }
+    .TrajectoriesLinkBack{
+      &.preAnimated {
+        left: 0
+      }
+      .BackText {
+        display: none;
+      }
+    }
   }
 }
 
-@media screen and (max-width: 430px) {
-  .TrajectoriesLinkBack {
-
-  }
-  .LogoImg {
-    /*width: 4em;*/
-  }
-  .LogoText {
-    /*font-size: 12px;*/
-  }
-}
