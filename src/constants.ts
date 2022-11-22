@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.track.la.itmo.su/'
+export const BASE_URL = 'https://track.la.itmo.su/api/'
 export const COLORS_BY_CATEGORY: {[key: string]: string} = {
   'Программирование': 'var(--color-7-light)',
   'Менеджмент': 'var(--color-10-light)',

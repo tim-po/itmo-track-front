@@ -1,322 +1,318 @@
-.ContainerLanding{
+.ContainerLanding {
   display: flex;
   justify-content: center;
-}
-.FirstBlock{
-  max-width: 1500px;
-}
-.HeaderSubtextFlex{
-  /*margin-top: 72px;*/
-}
-.Desires{
-  flex-grow: 4;
-}
 
-.MainTitle{
-  margin-bottom: 56px;
-  max-width: 600px;
-}
-.StarsMobil{
-  display: none!important;
-}
-.Container.Landing{
-  max-width: calc(100% - 80px);
-  padding: inherit;
-}
-.Landing {
-  max-width: 1920px;
-  min-height: 100vh;
-  margin-top: 24px;
-}
+  .Landing {
+    max-width: 1920px;
+    min-height: 100vh;
+    margin-top: 24px;
 
-.point-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 24px;
-}
+    .LandingCardFlex {
+      display: flex;
+      justify-content: space-around;
 
-.letter-icon {
-  margin-right: 10px;
-}
+      .InfoCard {
+        border-radius: 20px;
+        background: white;
+        padding: 2.5rem;
+        margin-bottom: 20px;
+      }
 
-.LandingCard {
-  background: white;
-  border-radius: 1.25rem;
-  padding: 70px 51px 55px 4rem;
-}
-.LandingCardFlex{
-  display: flex;
-  justify-content: space-around;
-}
+      .InfoTitle {
+        max-width: 700px;
+        font-weight: 500;
+        font-size: 24px;
+        margin-bottom: 40px;
+      }
 
-.MainTitle {
-  max-width: 600px;
-  font-weight: 800;
-  font-size: 64px;
-}
+      .HelloCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 70px 30px;
+        justify-content: center;
+        border-radius: 20px;
+        background: var(--color-5-dark);
+        width: 540px;
+        margin-bottom: 20px;
 
-.MainButton {
-  transition: 0.3s;
-  align-self: center;
-  background: var(--color-5-dark);
-  color: white;
-  font-weight: 500;
-  font-size: 20px;
-  border: 0;
-  border-radius: 8px;
-  padding: 20px 44px;
-}
+        .HelloText {
+          margin-top: 50px;
+          font-weight: 500;
+          font-size: 24px;
+          color: white;
+        }
+      }
 
-.MainButton:hover {
-  background: #AE78FE;
-  color: white;
-}
+      .point-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 24px;
 
-.MainButton:active {
-  background: #7328E2;
-  color: white;
-}
+        .InfoText {
+          font-weight: 500;
+          font-size: 20px;
+        }
 
-.SecondaryButton {
-  color: var(--color-5-dark);
-  border-radius: 8px;
-  padding: 20px 34px;
-  background: white;
-  border: 1px solid var(--color-5-dark);
-  transition: 0.3s;
-  font-weight: 500;
-  font-size: 20px;
-}
+        .letter-icon {
+          margin-right: 10px;
+        }
 
-.SecondaryButton:hover {
-  background: #F3F3FE;
-  color: #AE78FE;
-}
+      }
 
-.SecondaryButton:active {
-  background: #F3F3FE;
-  color: #7328E2;
-}
+      &.FirstBlock {
+        max-width: 1500px;
 
-.HeaderSubtext {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 20px;
-  color: var(--text-secondary);
-}
 
-.FlexButton {
-  margin-bottom: 40px;
-}
+        .Desires {
+          flex-grow: 4;
 
-.HelloCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 70px 30px;
-  justify-content: center;
-  border-radius: 20px;
-  background: var(--color-5-dark);
-  width: 540px;
-}
+          .ImgMain {
+            margin-bottom: 30px;
+          }
 
-.HelloText {
-  margin-top: 50px;
-  font-weight: 500;
-  font-size: 24px;
-  color: white;
-}
+          .MainTitle {
+            font-weight: 800;
+            font-size: 64px;
+            margin-bottom: 56px;
+            max-width: 600px;
+          }
 
-.InfoCard {
-  border-radius: 20px;
-  background: white;
-  padding: 2.5rem;
-}
+          .FlexButton {
+            margin-bottom: 40px;
 
-.InfoTitle {
-  max-width: 700px;
-  font-weight: 500;
-  font-size: 24px;
-  margin-bottom: 40px;
-}
+            .SecondaryButton {
+              color: var(--color-5-dark);
+              border-radius: 8px;
+              padding: 20px 34px;
+              background: white;
+              border: 1px solid var(--color-5-dark);
+              transition: 0.3s;
+              font-weight: 500;
+              font-size: 20px;
 
-.InfoSubtext {
-  font-weight: 500;
-  font-size: 20px;
-  color: var(--text-secondary);
-}
+              &:hover {
+                background: #F3F3FE;
+                color: #AE78FE;
+              }
 
-.InfoText {
-  font-weight: 500;
-  font-size: 20px;
-}
+              &:active {
+                background: #F3F3FE;
+                color: #7328E2;
+              }
+            }
 
-.FinalCard {
+            .MainButton {
+              transition: 0.3s;
+              align-self: center;
+              background: var(--color-5-dark);
+              color: white;
+              font-weight: 500;
+              font-size: 20px;
+              border: 0;
+              border-radius: 8px;
+              padding: 20px 44px;
 
-  align-items: center;
-  border-radius: 20px;
-  background: white;
-  padding: 2rem;
-}
+              &:hover {
+                background: #AE78FE;
+                color: white;
+              }
 
-.FinalCardTitle {
-  font-weight: 500;
-  font-size: 22px;
-}
-.Stars{
-  margin-right: 23px;
-}
-.InfoCard{
-  margin-bottom: 20px;
-}
-.LandingCard{
-  margin-bottom: 20px;
-}
-.HelloCard{
-  margin-bottom: 20px;
-}
+              &:active {
+                background: #7328E2;
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
 
-@media screen and (max-width: 988px){
-  .LandingCard{
-    margin-bottom: 20px;
-  }
-  .mobilStar{
-    display: flex;
-  }
-  .InfoCard{
-    margin-bottom: 20px;
-  }
-  .HeaderSubtext{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    display: flex;
-    justify-content: center;
-  }
-  .ImgMain{
-    margin-bottom: 30px;
-  }
-  .InfoTitle {
-    margin-bottom: 24px;
-  }
-  .FlexEducationalTrajectory{
-    display: flex;
-  }
-  .HeaderSubtextFlex{
-    margin-top: inherit;
-    display: flex;
-    justify-content: center;
-  }
-  .HeaderSubtext{
-    text-align: center;
-  }
-  .LandingCard{
-    padding: 20px 14px ;
-  }
-  .FlexButton{
-    margin-bottom: 40px;
-    display: flex;
-    justify-content: center;
-    gap: 10px
-  }
-  .ImgMain{
-    align-content: center;
-    align-items: center;
-  }
-  .ImgMain img{
-    width: 184px;
-    height: 194px;
-  }
-  .StarsMobil{
-    display: inherit!important;
-  }
-  .Stars{
+    .LandingCard {
+      background: white;
+      border-radius: 1.25rem;
+      padding: 70px 51px 55px 4rem;
+      margin-bottom: 20px;
 
-    display: none!important;
-  }
-  .MainButton{
-    width: 104px;
-    font-size: 17px;
-    padding: 12px 10px;
-  }
-  .SecondaryButton{
-    font-size: 17px;
-    padding: 12px 10px;
-  }
-  .MainTitle{
-    margin-bottom: 45px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 30px;
-    text-align: center;
-    max-width: 100%;
-  }
-  .LinkProfession{
-    height: fit-content;
-  }
-  #ScrollToAbout .HelloCard{
-    margin-right: inherit!important;
-    margin-bottom: 20px;
-  }
-  .LandingCardFlex{
-    display: inherit;
-  }
+      .HeaderSubtext {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 20px;
+        color: var(--text-secondary);
+      }
+    }
 
-  .HelloCard {
-    padding: 20px;
-    width: 100%;
+    .FinalCard {
+      align-items: center;
+      border-radius: 20px;
+      background: white;
+      padding: 2rem;
+
+      .FinalCardTitle {
+        font-weight: 500;
+        font-size: 22px;
+      }
+    }
+
+    .Stars {
+      margin-right: 23px;
+    }
+
+    .StarsMobil {
+      display: none !important;
+    }
   }
 }
-@media screen and (max-width: 724px){
+
+
+@media screen and (max-width: 988px) {
+  .ContainerLanding {
+    .Landing {
+      .LandingCardFlex {
+        display: inherit;
+
+        .InfoTitle {
+          margin-bottom: 24px;
+        }
+
+        .HelloCard {
+          padding: 20px;
+          width: 100%;
+          margin-right: inherit !important;
+          margin-bottom: 20px;
+
+        }
+
+
+        &.FirstBlock {
+          .Desires {
+            .ImgMain {
+              align-content: center;
+              align-items: center;
+
+              .ImgMain img {
+                width: 184px;
+                height: 194px;
+              }
+            }
+
+            .MainTitle {
+              margin-bottom: 45px;
+              font-family: 'Inter';
+              font-style: normal;
+              font-weight: 700;
+              font-size: 24px;
+              line-height: 30px;
+              text-align: center;
+              max-width: 100%;
+            }
+
+            .FlexButton {
+              margin-bottom: 40px;
+              display: flex;
+              justify-content: center;
+              gap: 10px;
+              .LinkProfession {
+                height: fit-content;
+              }
+              .SecondaryButton {
+                font-size: 17px;
+                padding: 12px 10px;
+              }
+              .MainButton {
+                width: 104px;
+                font-size: 17px;
+                padding: 12px 10px;
+
+              }
+            }
+          }
+        }
+      }
+
+      .LandingCard {
+        padding: 20px 14px;
+
+        .HeaderSubtext {
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 20px;
+          display: flex;
+          text-align: center;
+          justify-content: center;
+        }
+      }
+
+      .Stars {
+
+        display: inherit !important;
+      }
+
+      .StarsMobil {
+        display: none !important;
+      }
+    }
+    .FinalCard{
+      .FlexEducationalTrajectory {
+        display: flex;
+      }
+      .mobilStar {
+        display: flex;
+      }
+    }
+  }
+
+
+}
+
+@media screen and (max-width: 724px) {
   .hand-icon {
     width: 180px;
     height: 150px;
   }
-  .MainTitle{
+  .MainTitle {
     font-size: 24px;
     margin-bottom: 42px;
   }
-  .HelloText{
+  .HelloText {
     font-weight: 500;
     font-size: 16px;
     line-height: 22px;
     text-align: center;
     margin-top: 35px;
   }
-  .MainButton{
+  .MainButton {
     width: 104px;
     font-size: 14px;
-    margin-right: inherit!important;
+    margin-right: inherit !important;
   }
-  .SecondaryButton{
+  .SecondaryButton {
     width: 104px;
     font-size: 14px;
   }
-  .InfoTitle{
+  .InfoTitle {
     font-weight: 500;
     font-size: 16px;
     line-height: 22px;
     margin-bottom: 24px;
   }
-  .InfoText{
-    margin-left: 0.5rem!important;
+  .InfoText {
+    margin-left: 0.5rem !important;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
   }
-  .FinalCardTitle{
+  .FinalCardTitle {
     font-weight: 500;
     font-size: 16px;
     line-height: 22px;
   }
-  .InfoSubtext{
+  .InfoSubtext {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -328,47 +324,51 @@
     width: 100%;
   }
 }
-@media screen and (max-width: 575px){
-  .MainTitle{
+
+@media screen and (max-width: 575px) {
+  .MainTitle {
     font-size: 24px;
     margin-bottom: 42px;
   }
-  .SecondaryButton{
+  .SecondaryButton {
     width: 104px;
     font-size: 14px;
   }
-  .MainButton{
+  .MainButton {
     width: 104px;
     font-size: 14px;
   }
 }
-@media screen and (max-width: 461px){
-  .MainButton{
+
+@media screen and (max-width: 461px) {
+  .MainButton {
     width: 104px;
     font-size: 14px;
   }
-  .SecondaryButton{
+  .SecondaryButton {
     font-size: 14px;
   }
 }
-@media screen and (max-width: 375px){
-  .MainTitle{
+
+@media screen and (max-width: 375px) {
+  .MainTitle {
     font-size: 24px;
   }
-  .InfoText{
+  .InfoText {
     font-size: 16px;
   }
-  .MainButton{
+  .MainButton {
     width: 104px;
     font-size: 13px;
   }
-  .SecondaryButton{
+  .SecondaryButton {
     font-size: 13px;
   }
 }
-@media screen and (max-width: 331px){
-  .MainButton{
+
+@media screen and (max-width: 331px) {
+  .MainButton {
     width: 104px;
-    margin-right: inherit!important;
+    margin-right: inherit !important;
   }
 }

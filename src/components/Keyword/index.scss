@@ -10,16 +10,17 @@
   transform: scale(1);
   opacity: 1;
   line-height: 15px;
+  &.Deleted {
+    transform: scale(0);
+    opacity: 0;
+  }
+  .DeletedButton {
+    width: 8.5px;
+    height: 8.5px;
+    background: url("../../static/deleteBtn.svg") center;
+    margin-left: 8.81px;
+  }
 }
 
-.KeywordsModalKeywords.Deleted {
-  transform: scale(0);
-  opacity: 0;
-}
 
-.DeletedButton {
-  width: 8.5px;
-  height: 8.5px;
-  background: url("../../static/deleteBtn.svg") center;
-  margin-left: 8.81px;
-}
+
