@@ -19,6 +19,9 @@
   padding: 36px;
 }
 
+
+
+
 .KeywordsModalContent{
   border-radius: 16px;
   max-width: 855px;
@@ -27,29 +30,31 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
+  .KeywordsModalHeader{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #1F1F22;
+    margin: 0px;
+  }
+  .keywords-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: max(592px, 60vh);
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 6px;
+      background: rgba(243, 243, 248, 0.5);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #e7e8ee;
+      border-radius: 6px;
+    }
+  }
 }
-.KeywordsModalHeader{
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-  color: #1F1F22;
-  margin: 0px;
-}
-.keywords-container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-height: max(592px, 60vh);
-  overflow-y: auto;
-}
-.keywords-container::-webkit-scrollbar {
-  width: 6px;
-  background: rgba(243, 243, 248, 0.5);
-}
-.keywords-container::-webkit-scrollbar-thumb {
-  background: #e7e8ee;
-  border-radius: 6px;
-}
+
+
 @media screen and (max-width: 1000px) {
   .KeywordsModalContent{
     border-radius: 16px 16px 0 0;
