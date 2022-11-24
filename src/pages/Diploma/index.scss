@@ -1,73 +1,82 @@
-.diplomaContainer {
-  padding-top: 24px;
-  max-width: 1500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  width: 100%;
-  .DiplomaCard {
-    border-radius: 16px;
-    padding: 25px;
-    border: 0;
-    .tilesFlex{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px
-    }
 
-    .tileHeader{
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-  }
-  .leftTiles{
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    width: 20%;
-    max-width: 514px;
-    min-width: 300px;
-    flex-grow: 3;
-  }
-  .MobilFix{
-    display: block;
-  }
-    .marginText{
-      margin-bottom: 24px;
-    }
-    .d-flex{
-      .MainButton{
-        margin-right: 0.5rem
-      }
-      .mainButtonDiploma {
-        font-size: 14px;
-        padding: 10px 12px;
-      }
-      .secondary-button-diploma {
-        font-size: 14px;
-        padding: 10px 12px;
-      }
-      .secondary-button-diploma-with-icon::after{
-        content: url("../../static/share.svg");
-        margin-left: 10px;
-      }
-
-  }
-  .rightTiles{
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    flex-grow: 5;
-    .mobi-opacity-block{
-      display: none;
-    }
-  }
+.marginText {
+  margin-bottom: 24px;
+  line-height: 22px;
 }
 
+.RandomFeedback.NotVisible {
+  transform: scale(0);
+  transition-duration: 0.3s;
+  /*transition: opacity 0.3s, transform 0s 0.3s ;*/
+}
+
+.RandomFeedback {
+  box-shadow: 0px -1px 24px rgba(31, 31, 34, 0.02), 1px 4px 24px rgba(31, 31, 34, 0.06);
+  position: absolute;
+  bottom: 40px;
+
+  transform: scale(1);
+  /*transition: opacity 0.3s, transform 0s 0.3s ;*/
+  transition-duration: 0.3s;
+
+  right: 50px;
+  border-radius: 16px;
+}
+
+.MobilFix {
+  display: block;
+}
+
+.MainButton {
+  margin-right: 0.5rem
+}
+
+.tilesFlex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px
+}
+
+.tileHeader {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.CourseButtonDiploma {
+  border: 0;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 8px 8px 0px 0px;
+  color: var(--color-5-dark);
+  background-color: white;
+}
+
+.DiplomaCard {
+  border-radius: 16px;
+  padding: 25px;
+  border: 0;
+  min-height: 381px;
+}
+
+.CourseButton {
+  background: transparent;
+  border: 0;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.controlTypeCard {
+  cursor: pointer;
+  background: #78a3ec;
+  border-radius: 20px;
+  color: white;
+  min-width: 180px;
+  height: 104px;
+  padding: 20px;
+}
 
 
 
@@ -90,108 +99,197 @@
 }
 
 
+.mobi-opacity-block {
+  display: none;
+}
 
+.secondary-button-diploma-with-icon::after {
+  content: url("../../static/share.svg");
+  margin-left: 10px;
+}
 
+// Made by Danil --start--
 
-@media screen and (max-width: 1000px){
-  .diplomaContainer {
-    padding-top: 0;
-    grid-gap: 16px;
-    .DiplomaCard {
-      margin-top: 16px !important;
-      .tilesFlex {
-        display: inherit;
-        &.rent {
-          display: flex;
-          overflow-x: scroll;
-          flex-wrap: nowrap;
-          padding-bottom: 280px;
-        }
-      }
-      .tileHeader{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px!important;
-        line-height: 22px;
-        color: #1F1F22;
-        &.education{
-          font-family: 'Inter';
-          font-style: normal;
-          font-weight: 600;
-          font-size: 16px!important;
-          line-height: 22px;
-          color: #1F1F22;
-        }
-      }
+.diploma-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 100%;
+}
+
+.tiles-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+
+  .left-tiles {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 514px;
+    min-width: 300px;
+  }
+
+  .right-tiles {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+
+.buttons-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+
+  .button-text {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .share-button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+.white-tile-wrapper {
+  background: #fff;
+  padding: 20px 24px;
+  border-radius: 16px;
+}
+
+.disciplines-tile {
+  min-height: 381px;
+  width: max-content;
+  max-width: 830px;
+
+  .disciplines-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+.control-types-tile {
+  width: 830px;
+  max-width: 830px;
+
+  .control-types-wrapper {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+.modal-stick-wrapper {
+  display: none;
+}
+
+// --end--
+
+@media screen and (max-width: 1300px) {
+  .diploma-container {
+    padding-bottom: 64px;
+  }
+
+  .tiles-wrapper {
+    flex-direction: column;
+
+    .left-tiles {
+      max-width: 700px;
+      min-width: 0;
     }
-    .leftTiles{
+
+    .right-tiles {
+      max-width: 700px;
+    }
+  }
+
+  .disciplines-tile {
+    width: 100%;
+
+    .disciplines-wrapper {
       width: 100%;
-      max-width: inherit;
     }
-    .MobilFix{
-      padding: inherit;
-      z-index: 10;
-      bottom: 0;
-      background: #F3F3F8;
-       .DiplomaCard{
-        background: none;
-         h6 {
-           font-family: 'Inter';
-           font-style: normal;
-           font-weight: 400;
-           font-size: 14px;
-         }
-      }
+
+    .mobile-card {
+      border-radius: 8px;
     }
-    .marginText{
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
-    .d-flex{
-      flex-direction: column;
-      .MainButton{
-      }
-      .mainButtonDiploma {
-        width: 100%;
-        padding: 6px 8px;
-        text-align: center;
-        margin: 0 0 12px 0;
-        &a{
-          text-decoration: none;
-        }
-      }
-      .secondary-button-diploma {
-        width: 100%;
-        padding: 6px 8px;
-        text-align: center;
-        margin: 0 0 12px 0;
-      }
-      .SecondaryButton{
-        margin-bottom: inherit!important;
-      }
-    }
-    .rightTiles{
-      .mobi-opacity-block{
-        display: none;
+  }
+
+  .control-types-tile {
+    width: 100%;
+    max-width: none;
+
+
+    .control-types-wrapper {
+      display: flex;
+      overflow-x: scroll;
+
+      .mobile-card {
+        border-radius: 8px;
       }
     }
   }
-}
-@media screen and (max-width: 433px) {
-  .diplomaContainer {
-    padding-top: 0;
-    grid-gap: 16px;
 
-    .MobilFix{
-      padding: 0 15px !important;
+  .buttons-wrapper {
+    .mobile-button {
+      width: 100%;
     }
-    .rightTiles{
-      .mobi-opacity-block{
-        display: block;
-        height: 0;
-        width: min-content;
-      }
+  }
+
+  .white-tile-wrapper {
+    transition: height .3s;
+
+    &.share-tile {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background: #F3F3F8;
+      box-shadow: 0px -10px 7px rgba(100, 53, 165, 0.1), 0px 0px 0px rgba(100, 53, 165, 0.11);
+      border-radius: 12px 12px 0 0;
+    }
+  }
+
+  .modal-stick-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .card-animation {
+    height: 100%;
+    transition: height 0.3s ease-in;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .right-tiles {
+    max-width: 100%;
+  }
+
+  .control-types-tile {
+    min-width: 340px;
+    width: 100%;
+  }
+
+
+  .control-types-wrapper {
+    .control-type-card-mobile {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: 40px;
+      height: 82px;
     }
   }
 }

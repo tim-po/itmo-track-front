@@ -6,10 +6,15 @@ export const DiplomaTileWrapper = styled.div`
   border-radius: 16px;
   padding: 20px 25px;
   background: #fff;
+  width: 100%;
 
-  @media screen and (max-width: 1280px) {
-    width: 100%;
-  }
+  //@media screen and (max-width: 1280px) {
+  //  width: 100%;
+  //}
+  //
+  //@media screen and (max-width: 750px) {
+  //  width: 100%;
+  //}
 `
 
 export const DiplomaTitle = styled.span`

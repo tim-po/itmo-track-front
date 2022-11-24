@@ -1,0 +1,341 @@
+.fullWidth {
+  width: 100vw !important;
+  padding-left: 32px;
+  transform: translateX(-32px);
+  padding-right: 32px;
+}
+
+.borderBottom {
+  border-bottom: 1px solid rgba(231, 232, 238, 1);
+  z-index: 10;
+  position: sticky;
+  top: 121px;
+  transform: translateY(1px);
+
+  width: 100%;
+}
+
+.shadowBottom {
+  z-index: 9;
+  top: 175px;
+  width: 100%;
+  position: sticky;
+  height: 1px;
+  transform: translateY(2px) translateX(-32px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.minTitle.bottom {
+  transition: all 0.3s;
+  top: 123px;
+  position: sticky;
+  background: white;
+  z-index: 10;
+  padding-top: 16px;
+}
+
+.minTitle.bottom.stickyPopup {
+  top: calc(122px + 320px);
+}
+
+.selectedSkillsBlock {
+  transition: all 0.3s;
+  position: sticky;
+  z-index: 11;
+  top: -220px;
+  background: white;
+  overflow: hidden;
+  height: 320px;
+  border-bottom: 1px solid rgba(231, 232, 238, 0);
+}
+
+.selectedSkillsBlock.stickyPopup {
+  top: 122px;
+}
+
+.selectedSkillsBlock.forceHidden {
+  height: 0;
+  border-bottom: 1px solid #E7E8EE;
+}
+
+.selectedSkillsBlock.forceHidden.stickyPopup {
+  height: revert;
+  border-bottom: revert;
+}
+
+.rightBlock .blockPreset {
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.blockPreset {
+  display: flex;
+  gap: 12px;
+}
+
+.blockMyPreset span {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #6E6D79;
+}
+
+.blockMyPreset {
+  gap: 32px;
+  width: 100%;
+  background: #F3F3F8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.leftContainer {
+  position: relative;
+}
+
+.scrollBtn {
+  transition: all 0.3s;
+  padding: 0;
+  position: absolute;
+  background-color: #ffffff;
+  background-image: url("../../static/arrowRight.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1000;
+  right: -20px;
+  top: calc(50% - 20px);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0px 26px 11px rgba(100, 53, 165, 0.01), 0px 15px 9px rgba(100, 53, 165, 0.03), 0px 7px 7px rgba(100, 53, 165, 0.05), 0px 0px 4px rgba(100, 53, 165, 0.06), 0px 0px 0px rgba(100, 53, 165, 0.06);
+}
+
+.scrollBtn.left {
+  right: unset;
+  left: -20px;
+  transform: rotate(180deg);
+}
+
+.professionsContainer {
+  max-width: inherit;
+  margin-bottom: 48px;
+}
+
+.bottomRow .actively {
+  background: #8533FF;
+  color: #FFFFFF;
+}
+
+.flex-block {
+  /*padding-top: 32px;*/
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+/*.slide {*/
+/*  !*max-width: 800px;*!*/
+/*  position: inherit;*/
+/*  max-height: 500px;*/
+/*  overflow-y: auto;*/
+/*  gap: 16px;*/
+/*  display: flex;*/
+/*  flex-wrap: wrap;*/
+/*}*/
+
+.bottomRow button {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #6E6D79;
+  background: #F3F3F8;
+  border: inherit;
+  padding: 8px 12px 8px 12px;
+  border-radius: 20px;
+}
+
+.bottomRow {
+  margin-bottom: 20px;
+}
+
+.minTitle {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1F1F22;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0px;
+  margin-bottom: 0;
+  /*padding-top: 35px;*/
+  padding-bottom: 16px;
+}
+
+.minTitle.top {
+  align-items: center;
+  position: sticky;
+  top: 64px;
+  background: white;
+  z-index: 12;
+}
+
+.buttonArrow {
+  /*display: none;*/
+  border: inherit;
+
+  background: white;
+  padding: 10px 12px;
+  gap: 10px;
+  border-radius: 8px;
+}
+
+.buttonArrow .mobil {
+  display: none;
+}
+
+.buttonArrow .deck {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #1F1F22;
+  transition: color .2s;
+}
+
+.buttonArrow .deck:hover {
+  transition: color .2s;
+  color: #6E6D79;
+}
+
+@media screen and (max-width: 1000px) {
+  .minTitle {
+    padding-top: 0;
+    padding-bottom: 8px;
+  }
+
+  .shadowBottom {
+    top: 155px;
+    transform: translateY(2px) translateX(-32px);
+  }
+
+  .shadowBottom.first {
+    top: 115px;
+  }
+
+  .fullWidth {
+    transform: translateX(-16px);
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .minTitle.bottom {
+    padding-top: 8px;
+    top: 117px;
+  }
+
+  .minTitle.bottom.stickyPopup {
+    top: 436px
+  }
+
+  .borderBottom {
+    top: 115px;
+  }
+
+  .leftContainer .flexPreset {
+    min-width: 300px;
+  }
+
+  .blockPreset {
+    width: 100%;
+
+  }
+
+  .rightBlock .blockPreset {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+
+  .rightBlock .presets.noActiv {
+    max-height: 0;
+    min-width: 100%;
+    transition-delay: 0.5s;
+    transition-duration: 0.4s;
+
+  }
+
+  .rightBlock .presets.activ {
+    max-height: 463px;
+    min-width: 100%;
+    transition-delay: 0.5s;
+    transition-duration: 0.4s;
+  }
+
+  .presets.noActiv {
+    min-width: 0;
+  }
+
+  .buttonArrow .mobil {
+    display: inherit;
+  }
+
+  .deck {
+    display: none;
+  }
+
+  .selectedSkillsBlock {
+    margin-bottom: 32px;
+    margin-right: 0;
+  }
+
+  .selectedSkillsBlock.stickyPopup {
+    top: 116px;
+  }
+
+  .minTitle {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .clear {
+    order: 2;
+  }
+
+  .flex-block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rightBlock {
+    margin-bottom: 200px;
+    order: 2;
+  }
+
+  .presets {
+    margin-bottom: inherit !important;
+    min-width: 100%
+  }
+
+  .buttonArrow {
+    background: inherit;
+    border: inherit;
+    display: inherit;
+  }
+
+  .arrowDown {
+    transform: rotate(0);
+    transition-duration: 0.3s;
+  }
+
+  .arrowUp {
+    transform: rotate(-180deg);
+    transition-duration: 0.3s;
+  }
+}

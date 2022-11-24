@@ -11,21 +11,29 @@ import logo from "../../static/logo.svg";
 // DEFAULT FUNCTIONS
 
 type HeaderPropType = {
-  left?: boolean
+  left: boolean
 }
 
 const Header = (props: HeaderPropType) => {
   const {left} = props;
-
-  const [isHeaderPreAnimated, setIsHeaderPreAnimated] = useState(!!left)
+  const leftBlocks = ['/professions', '/']
+  const [isHeaderPreAnimated, setIsHeaderPreAnimated] = useState(leftBlocks.includes(window.location.pathname))
 
   const navigate = useNavigate()
   const {backButtonText, backButtonHref} = useContext(BackButtonContext)
   const {isHeaderAnimated, setIsHeaderAnimated} = useContext(HeaderContext)
 
   useEffect(() => {
-    if(isHeaderAnimated){
-      setIsHeaderPreAnimated(true)
+    setIsHeaderPreAnimated(leftBlocks.includes(window.location.pathname))
+  }, [window.location.pathname])
+
+  useEffect(() => {
+    // setIsHeaderPreAnimated(!left)
+  }, [left])
+
+  useEffect(() => {
+    if(isHeaderAnimated && isHeaderPreAnimated){
+      // setIsHeaderPreAnimated(true)
       setTimeout(() => {
         setIsHeaderPreAnimated(false)
       }, 1000)

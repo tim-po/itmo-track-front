@@ -1,14 +1,15 @@
 import React, {useContext, useEffect, useState} from "react";
 import './index.scss'
-import GenericModal from "../../components/GenericModal";
-import Header from "../../components/Header";
-import KeywordsModal from "../../components/Modals/KeywordsModal";
+import GenericModal from "components/GenericModal";
+import Header from "components/Header";
+import KeywordsModal from "components/Modals/KeywordsModal";
 import BgContext from "Context/Background";
 import {Route, Routes} from "react-router-dom";
-import BackButtonContext from "../../Context/BackButton";
-import ModalsContext from "Context/KeywordsModal";
-import {KeywordType} from "../../types";
-import DisciplinesModal from "../../components/Modals/DisciplinesModal";
+import BackButtonContext from "Context/BackButton";
+import ModalsContext from "Context/Modal";
+import {KeywordType} from "types";
+import DisciplinesModal from "components/Modals/DisciplinesModal";
+import modal from "Context/Modal";
 
 // CONSTANTS
 
@@ -21,6 +22,10 @@ type layoutPropType = {
 
 const Layout = (props: layoutPropType) => {
   const {children} = props
+
+  const [shouldDisplayModal, setShouldDisplayModal] = useState<boolean>(false)
+  const [modalComponent, setModalComponent] = useState<React.ReactNode | undefined>(undefined)
+
   const [isKeywordsModalOpen, setKeywordsModalOpen] = useState(false)
   const [keywordsForModal, setKeywordsForModal] = useState<KeywordType[]>([])
   const [isDisciplinesModalOpen, setIsDisciplinesModalOpen] = useState(false)
@@ -34,18 +39,15 @@ const Layout = (props: layoutPropType) => {
   const [backgroundColor, setBackgroundColor] = useState('white')
 
   const {backButtonHref} = useContext(BackButtonContext)
-  
-  const clearKeywordsForModal = () => {
-    setKeywordsModalOpen(false)
-    setIsDisciplinesModalOpen(false)
-    setKeywordsForModal([])
-    setDisciplinesForModal({
-      course: undefined,
-      headerBg: '',
-      item: {},
-      isControlTypesModal: false,
-      typeOfControlType: ''
-    })
+
+  const displayModal = (component: React.ReactNode) => {
+    setModalComponent(component)
+    setShouldDisplayModal(true)
+  }
+
+  const closeModal = () => {
+    setModalComponent(undefined)
+    setShouldDisplayModal(false)
   }
 
   useEffect(() => {
@@ -61,24 +63,20 @@ const Layout = (props: layoutPropType) => {
   }, [disciplinesForModal])
 
   return (
-    <ModalsContext.Provider value={{
-      setKeywordsForModal: (keywords)=>setKeywordsForModal(keywords),
-      setDisciplinesForModal: (course, headerBg,item, isControlTypesModal,typeOfControlType) => setDisciplinesForModal({course, headerBg, item, isControlTypesModal, typeOfControlType})
-    }}>
+    <ModalsContext.Provider value={{ displayModal }}>
       <BgContext.Provider value={{setBg: setBackgroundColor}}>
         <div className="DefaultLayoutContainer" id="scroll-container" style={{backgroundColor: backgroundColor}}>
           <Header left={backButtonHref === '/'}/>
           <div className="Content">
             {children}
             <GenericModal
-              modal={isKeywordsModalOpen || isDisciplinesModalOpen}
+              modal={shouldDisplayModal}
               colorCloseWhite={false}
               hideMobile={false}
               hideDesktop={false}
-              onModalClose={clearKeywordsForModal}
+              onModalClose={closeModal}
             >
-              {isKeywordsModalOpen && <KeywordsModal keywords={keywordsForModal}/>}
-              {isDisciplinesModalOpen && <DisciplinesModal disciplines={disciplinesForModal} />}
+              {modalComponent}
             </GenericModal>
           </div>
         </div>

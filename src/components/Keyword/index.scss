@@ -1,26 +1,36 @@
-.KeywordsModalKeywords {
+.Keyword {
   background: #EEEEFF;
-  transition: all 0.3s;
+  transition: all 0.5s, border 0.3s;
   border-radius: 8px;
   padding: 8px 12px;
   margin-right: 8px;
   margin-bottom: 8px;
   font-weight: 500;
   font-size: 12px;
-  transform: scale(1);
+  transform: scale(1) translateY(0);
   opacity: 1;
   line-height: 15px;
-  &.Deleted {
-    transform: scale(0);
+  border: 1px solid white;
+
+  &.deleted {
+    transform: scale(0) translateY(-50px);
     opacity: 0;
   }
-  .DeletedButton {
-    width: 8.5px;
-    height: 8.5px;
-    background: url("../../static/deleteBtn.svg") center;
-    margin-left: 8.81px;
+
+  &.selected{
+    border: 1px solid var(--color-5-dark);
+    //padding: 7px 11px;
+    cursor: pointer;
+  }
+
+  &.selectable{
+    cursor: pointer;
   }
 }
 
-
-
+.deletedButton {
+  width: 8.5px;
+  height: 8.5px;
+  background: url("../../static/deleteBtn.svg") center;
+  margin-left: 8.81px;
+}

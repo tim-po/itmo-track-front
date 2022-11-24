@@ -14,6 +14,13 @@
     src: url('../public/fonts/Inter-Medium.ttf') format('truetype');
 }
 
+button{
+    outline: none !important;
+    cursor: pointer;
+    border: none ;
+    background: none ;
+}
+
 @font-face {
     font-family: 'Inter';
     font-style: normal;
@@ -119,4 +126,18 @@ body {
 .SecondaryButton:active {
     background: #F3F3FE;
     color: #7328E2;
+}
+
+.skeleton-v2 {
+    opacity: .7;
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: rgba(235, 235, 235, 1);
+    }
+    100% {
+        background-color: rgba(184, 184, 184, .7);
+    }
 }

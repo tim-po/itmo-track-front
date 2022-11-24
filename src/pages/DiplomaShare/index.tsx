@@ -1,38 +1,39 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import axios from "axios";
 import {BASE_URL} from "../../constants";
 import './index.scss';
 import BgContext from "Context/Background";
 import {KeywordType} from "types";
-import ModalsContext from "Context/KeywordsModal";
-import {useSearchParams} from "react-router-dom";
+import ModalsContext from "Context/Modal";
+import {useNavigate, useSearchParams} from "react-router-dom";
 import Link from 'components/Link';
 import Description from "components/DiplomaGeneral/Description";
 import Keywords from "components/DiplomaGeneral/Keywords";
 import {makeKeywordsArray} from "utils/makeKeywordsArray";
 import Card from "components/DiplomaGeneral/Card";
 import {colors} from "../../constants";
+import Button from "components/Button";
+import SwapModal from "components/Modals/SwapModal";
 
 type DiplomaSharePropType = {}
 
-const DiplomaShareDefaultProps = {
-  somePropWithDefaultOption: 'default value'
-}
+const DiplomaShareDefaultProps = {}
 
 const DiplomaShare = () => {
+  const {setBg} = useContext(BgContext)
+  // const {setDisciplinesForModal, setKeywordsForModal} = useContext(ModalsContext)
+
+  const cardRef = useRef();
 
   const [diplomaShareData, setDiplomaShareData] = useState<any>(undefined);
   const [keywords, setKeywords] = useState<KeywordType[]>([]);
-  const [isMobileModalOpen, setIsMobileModalOpen] = useState<boolean>(true);
 
   const [searchParams] = useSearchParams()
-
-  const {setBg} = useContext(BgContext)
-  const {setDisciplinesForModal, setKeywordsForModal} = useContext(ModalsContext)
+  const navigate = useNavigate()
 
   const getDiplomaShareData = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/trajectories/${searchParams.get('id')}/share/`)
+      const response = await axios.get(`${BASE_URL}trajectories/${searchParams.get('id')}/share/`)
       setDiplomaShareData(response.data)
     } catch (e) {
       console.log(e)
@@ -54,13 +55,13 @@ const DiplomaShare = () => {
     return "предметов";
   }
 
-  const openDisciplinesModal = (course: any, headerBg: string, item: any) => {
-    setDisciplinesForModal(course, headerBg, item)
-  }
+  // const openDisciplinesModal = (course: any, headerBg: string, item: any) => {
+  //   setDisciplinesForModal(course, headerBg, item)
+  // }
 
-  const openKeywordsModal = () => {
-    setKeywordsForModal(keywords || [])
-  }
+  // const openKeywordsModal = () => {
+  //   setKeywordsForModal(keywords || [])
+  // }
 
   useEffect(() => {
     getDiplomaShareData()
@@ -88,17 +89,16 @@ const DiplomaShare = () => {
           <Keywords
             keywords={keywords?.slice(0, 10)}
             keywordsCount={keywords?.length}
-            openKeywordsModal={openKeywordsModal}
             isKeywordsButtonHidden={false}
           />
-          <div className={`DiplomaCard diplomaCardAbout ${isMobileModalOpen ? '' : 'closeBlock'}`}>
+          <SwapModal
+            modalHeight={250}
+            elementRef={cardRef}
+            classes={[
+              'diplomaCardAbout',
+            ]}
+          >
             <div className="row ">
-              <img
-                src="/static/closeBtn.svg"
-                alt="close"
-                className="closeBtn"
-                onClick={() => setIsMobileModalOpen(false)}
-              />
               <div className="likes-icon">
                 <img src={'/static/like.svg'}/>
               </div>
@@ -108,14 +108,19 @@ const DiplomaShare = () => {
                   можешь создать свою траекторию вместе с нами!
                 </div>
                 <div className="buttons-wrapper">
-                  <a href="/" className="MainButton mainButtonDiploma mr-2">
-                    Хочу так же
-                  </a>
+                  <Button
+                    buttonStyle={'secondary'}
+                    onClick={() => navigate('/')}
+                    isDisabled={false}
+                    classNames={['mobile-button']}
+                  >
+                    <span>Хочу так же</span>
+                  </Button>
                   <Link href={diplomaShareData?.educational_plan.replace('', '+')}>Читать больше на abit.itmo.ru</Link>
                 </div>
               </div>
             </div>
-          </div>
+          </SwapModal>
         </div>
         <div className="MargTopMobil">
           <div className="DiplomaCard mb-4">
@@ -133,7 +138,7 @@ const DiplomaShare = () => {
                         name={item.name}
                         title={item.name}
                         subtitle={item.disciplines_count}
-                        openDisciplinesModal={() => openDisciplinesModal(`${course.course} курс`, colors[item.name], item)}
+                        classNames={['mobile-card-share']}
                       />
                     ))}
                   </div>

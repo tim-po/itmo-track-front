@@ -2,12 +2,7 @@ import React, {useContext, useState} from "react";
 import './index.scss';
 import copy from "copy-to-clipboard";
 import {useSearchParams} from "react-router-dom";
-
-// CONSTANTS
-
-// DEFAULT FUNCTIONS
-
-// TODO: copy this components directory and add your content to make your page
+import Button from "components/Button";
 
 type ShareModalPropType = {}
 
@@ -52,20 +47,26 @@ const ShareModal = (props: ShareModalPropType) => {
             />
           </div>
           <div className="shareBtnContainer">
-            <button className="SecondaryButton secondaryButtonShare" onClick={shareWithoutName}>
-            { isLinkWithoutNameCopied ? 'Ссылка скопирована' : 'Продолжить без имени' }
-          </button>
-          <button
-            disabled={name === ''}
-            className="MainButton mainButtonShare"
-            onClick={shareWithName}
-          >
-          { isLinkWithNameCopied ? 'Ссылка скопирована' : 'Поделиться' }
-        </button>
+            <Button
+              buttonStyle={'secondary'}
+              onClick={shareWithoutName}
+              isDisabled={false}
+              classNames={['share-button']}
+            >
+              {isLinkWithoutNameCopied ? 'Ссылка скопирована' : 'Продолжить без имени'}
+            </Button>
+            <Button
+              buttonStyle={'main'}
+              onClick={shareWithName}
+              isDisabled={name === ''}
+              classNames={['share-button']}
+            >
+              {isLinkWithNameCopied ? 'Ссылка скопирована' : 'Поделиться'}
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
-</div>
-</div>
   )
 };
 

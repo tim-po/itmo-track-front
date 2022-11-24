@@ -1,0 +1,259 @@
+.skeleton {
+  background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+  background-size: 600px;
+  animation: shine-lines 1s infinite linear;
+  content: "" !important;
+  pointer-events: none;
+  height: 31px;
+  margin: 0 8px 8px 0;
+  border-radius: 8px;
+}
+
+.skeleton::after,
+.skeleton::before
+.skeleton div {
+  opacity: 0;
+}
+
+.keywordsAdded{
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@keyframes shine-lines {
+  0% {
+    background-position: -100px
+  }
+
+  40%, 100% {
+    background-position: 390px
+  }
+}
+
+
+input:focus {
+  outline-color: #7328E2;
+}
+
+
+.mobile {
+  display: none !important;
+}
+
+.magnifierTextContainer {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: 61px;
+  margin-top: 69px;
+}
+
+.magnifier {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #6E6D79;
+}
+
+.randomFeedback.notVisible {
+  transform: scale(0);
+  transition-duration: 0.3s;
+  /*transition: opacity 0.3s, transform 0s 0.3s ;*/
+}
+
+.randomFeedback {
+  box-shadow: 0px -1px 24px rgba(31, 31, 34, 0.02), 1px 4px 24px rgba(31, 31, 34, 0.06);
+  position: absolute;
+  bottom: 40px;
+
+  transform: scale(1);
+  /*transition: opacity 0.3s, transform 0s 0.3s ;*/
+  transition-duration: 0.3s;
+
+  right: 50px;
+  border-radius: 16px;
+}
+
+.keywordsCustomisationFlex .keywordsPresets {
+  /*max-height: max(592px, 60vh);*/
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+
+.leftBlock {
+  display: flex;
+  flex-direction: column;
+  min-width: 494px;
+  margin-right: 64px;
+}
+
+.search {
+  position: sticky;
+  top: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  z-index: 11;
+}
+
+.searchBlock {
+  width: 100%;
+}
+
+.subheader {
+  position: sticky;
+  top: 72px;
+  z-index: 10;
+  background: white;
+  width: 100%;
+  padding-bottom: 8px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1F1F22;
+}
+
+.subheader.top {
+  z-index: 20;
+}
+
+.blockFlex img {
+  margin-right: 4px;
+}
+
+.blockFlex button {
+  margin-left: 12px;
+  background: #F3F3F8;
+  border-radius: 8px;
+  border: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  height: 24px;
+  color: #8533FF;
+}
+
+.keywords {
+  /*height: calc(100vh - 180px);*/
+  z-index: 26 !important;
+}
+
+.keywordsCustomisationFlex {
+  margin-top: 24px;
+  /*position: relative;*/
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+
+.keywordsSubtext {
+  color: #6e6d7980;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.keywordsAdded {
+  max-height: calc(100vh - 310px);
+  overflow-y: auto;
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 879px) {
+  .subheader {
+    top: 65px;
+  }
+
+  .deckHidden {
+    /*display: none;*/
+  }
+
+  .mobile {
+    display: block !important;
+  }
+
+  .keywordsCustomisationFlex .keywordsPresets {
+    padding-bottom: 100px;
+  }
+
+  .keywords {
+    margin-top: 0px;
+  }
+
+  .leftBlock {
+    min-height: 220px;
+    /*order: 2;*/
+    /*margin-top: 50px;*/
+  }
+
+  .searchBlock {
+    /*order: 1;*/
+    /*margin-top: 50px;*/
+    padding-bottom: 120px;
+  }
+
+  .magnifierTextContainer {
+    flex-direction: column;
+    /*margin-bottom: 200px;*/
+    margin-left: inherit;
+  }
+
+  .leftBlock {
+    min-width: inherit;
+  }
+
+  .addKeywordsSearch {
+    max-width: calc(100% - 32px);
+    min-width: 100%;
+    /*top: inherit;*/
+    /*bottom: 174px;*/
+    z-index: 20;
+    top: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /*bottom: 200px;*/
+  }
+
+  .addKeywordsSearch.extended {
+    width: 100%;
+
+  }
+
+  .bottomLeftContainer {
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    background: white;
+    width: calc(100%);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+  }
+
+  .leftBlock {
+    margin-right: inherit;
+  }
+
+  .keywordsCustomisationFlex {
+    flex-direction: column;
+    height: unset;
+  }
+}
+
+@media screen and (min-width: 492px) and (max-width: 765px) {
+  .professionData img {
+    max-height: 220px;
+  }
+}

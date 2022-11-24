@@ -6,11 +6,9 @@ import {KeywordType} from "../../types";
 
 // DEFAULT FUNCTIONS
 
-// TODO: copy this components directory and add your content to make your page
-
 type KeywordPropType = {
   // You should declare props like this, delete this if you don't need props
-  deletable: boolean
+  deletable?: boolean
   keyword: KeywordType
   bgColor?: string
   selected?: boolean
@@ -42,7 +40,7 @@ const Keyword = (props: KeywordPropType) => {
 
   return (
     <span
-      className={`KeywordsModalKeywords ${isDeleted ? 'deleted' : ''}`}
+      className={`Keyword ${isDeleted ? 'deleted' : ''} ${selected ? 'selected' : ''} ${selected !== undefined ? 'selectable' : ''}`}
       key={keyword.text}
       onClick={onSelectSelf}
       style={{background: bgColor}}
@@ -50,7 +48,7 @@ const Keyword = (props: KeywordPropType) => {
          {keyword.text}
       {deletable &&
         <button
-          className="border-0 pr-0 py-0 DeletedButton"
+          className="border-0 pr-0 py-0 deletedButton"
           onClick={deleteSelf}
         />
       }

@@ -1,271 +1,629 @@
-.professionDetails{
-  .headerFlex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 26;
-    background: white;
-    .currentHeader {
-      margin-top: 24px;
-      margin-bottom: 24px;
-    }
-    .fontWeightBold {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 24px;
-      color: #1F1F22;
-    }
-    .bottomLeftContainer {
+.modalKeywords {
+  font-size: 12px;
+  line-height: 15px;
+  color: #8533FF;
+  padding: 8px 12px;
+  background: #EBEBFF;
+  border-radius: 8px;
+  border: inherit;
+  height: 31px;
+}
 
+.build-trajectory-text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #1F1F22;
+}
 
-      z-index: 2000;
-      .clear {
-        padding: 10px 12px;
-        background: white;
-        color: #8533FF;
-        border: 1px solid white;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 20px;
-        /*border-radius: 8px;*/
-        &.disable {
-          color: #C198FF !important;
-          pointer-events: none;
-        }
-      }
-      .save {
-        border: inherit;
-        background: #8533FF;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 20px;
-        color: #FFFFFF;
-        border-radius: 8px;
-        padding: 10px 12px;
-      }
-    }
-  }
-  .keywordsCustomisationFlex {
-    margin-top: 8px;
-    /*position: relative;*/
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    .professionsContainer {
-      transition: all 0.5s;
-      /*position: relative;*/
-      width: 100%;
-      max-width: 550px;
-      margin-right: 24px;
-      /*min-width: 320px;*/
-      flex-shrink: 2;
-      .professionDescription {
-        position: sticky;
-        top: 72px;
-        display: flex;
-        flex-direction: column;
-        .keywords__card {
-          transition: all 0.5s;
-          border-radius: 16px;
-          padding: 24px;
-          border: 1px solid #e7e8ee;
-          width: 100%;
+.edit-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 12px;
+}
 
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          .profession-data {
-            display: flex;
-            flex-wrap: wrap;
-          }
-        }
+.edit-button-text {
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #8533FF;
+}
 
-      }
-    }
+.edit-button-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+}
 
-  }
-  .subheader {
-    background: white;
-    position: sticky;
-    display: flex;
-    align-items: center;
-    top: 72px;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 22px;
-    color: #1F1F22;
-    .subheader-title {
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 22px;
-      color: #1F1F22;
-      margin-right: 10px;
-    }
-    .subheader-counter {
-      display: flex;
-      align-items: center;
-      padding: 4px 8px;
-      width: 30px;
-      height: 24px;
-      background: #F3F3F8;
-      border-radius: 8px;
-      font-family: 'Inter';
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 16px;
-      color: #8533FF;
-    }
-  }
-  .skeleton {
-    background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
-    background-size: 600px;
-    animation: shine-lines 1s infinite linear;
-    content: "" !important;
-    pointer-events: none;
-    height: 31px;
-    margin: 0 8px 8px 0;
-    border-radius: 8px;
-    &::after, &::before & div{
-      opacity: 0;
-    }
+.lamp-icon {
+  width: 80px;
+  height: 155px;
+}
+
+.profession-data {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bottomLeftContainer .clear.disabled {
+  color: #C198FF !important;
+  pointer-events: none;
+  cursor: revert;
+}
+
+.skeleton {
+  background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+  background-size: 600px;
+  animation: shine-lines 1s infinite linear;
+  content: "" !important;
+  pointer-events: none;
+  height: 31px;
+  margin: 0 8px 8px 0;
+  border-radius: 8px;
+}
+
+.skeleton::after,
+.skeleton::before
+.skeleton div {
+  opacity: 0;
+}
+
+@keyframes shine-lines {
+  0% {
+    background-position: -100px
   }
 
-  @keyframes shine-lines {
-    0% {
-      background-position: -100px
-    }
-
-    40%, 100% {
-      background-position: 390px
-    }
-  }
-
-  .blockDescription {
-    display: flex;
-    margin-top: 40px;
-    background: #F3F3F8;
-    border-radius: 12px;
-    padding: 20px 16px 20px 16px;
-
-    .professionDescriptionText {
-      display: flex;
-      flex-direction: column;
-      margin-right: 25px;
-
-      .build-trajectory-text {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 20px;
-        color: #1F1F22;
-      }
-
-    }
-
-    .lamp-icon {
-      width: 80px;
-      height: 155px;
-    }
-  }
-  .blockDescriptionMobil{
-    &.bottom{
-      display: none;
-    }
-    .button-primary {
-      max-width: 160px;
-      margin-top: 24px;
-      transition: all 0.5s, background 0.3s;
-      color: white;
-      border: 0;
-      background: var(--color-5-dark);
-      border-radius: 8px;
-      padding: 8px 12px;
-      font-weight: 700;
-      &:hover {
-        background: #AE78FE;
-        border-radius: 8px;
-        color: white;
-      }
-
-      &:active {
-        background: #7328E2;
-        color: #FFFFFF;
-        border-radius: 8px;
-      }
-    }
-  }
-
-  .right-flex {
-    width: 60%;
-    flex-grow: 5;
-    .containerPresets {
-      margin-bottom: 24px;
-      flex: 1 1 auto;
-    }
-    .containerBlockFlex {
-      .keywords__required {
-        max-height: max-content;
-        overflow: hidden;
-        /*flex-grow: 5;*/
-        margin-left: 0;
-        overflow-y: auto;
-
-        .modalKeywords {
-          font-size: 12px;
-          line-height: 15px;
-          color: #8533FF;
-          padding: 8px 12px;
-          background: #EBEBFF;
-          border-radius: 8px;
-          border: inherit;
-          height: 31px;
-        }
-      }
-    }
-  }
-  .blockFlex {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    position: sticky;
-    top: 72px;
-    z-index: 10;
-    background: white;
-
-    .edit-button {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      padding: 0 12px;
-      .edit-button-text {
-        font-family: 'Inter';
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 20px;
-        color: #8533FF;
-      }
-      .edit-button-icon {
-        width: 14px;
-        height: 14px;
-        margin-right: 10px;
-      }
-    }
-
+  40%, 100% {
+    background-position: 390px
   }
 }
 
+.currentHeader {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.fontWeightBold {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #1F1F22;
+}
+
+.headerFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 26;
+  background: white;
+}
+
+.right-flex {
+  width: 60%;
+  flex-grow: 5;
+}
+
+
+.subheader {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  top: 72px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1F1F22;
+  margin-right: 10px;
+}
+
+.subheader-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1F1F22;
+  margin-right: 10px;
+}
+
+.clear.disable {
+  color: #C198FF !important;
+  pointer-events: none;
+}
+
+.subheader-counter {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  //width: 30px;
+  height: 24px;
+  background: #F3F3F8;
+  border-radius: 8px;
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #8533FF;
+}
+
+
+.bottomLeftContainer {
+  z-index: 2000;
+}
+
+.bottomLeftContainer .clear {
+  padding: 10px 12px;
+  background: white;
+  color: #8533FF;
+  border: 1px solid rgba(255, 255, 255, 0);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  /*border-radius: 8px;*/
+}
+
+.bottomLeftContainer .save {
+  border: inherit;
+  background: #8533FF;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #FFFFFF;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.myPresets {
+  gap: 26px;
+  display: flex;
+  justify-content: center;
+}
+
+.smallTitle {
+  gap: 6px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*.keywordsPresets{*/
+/*  font-weight: 500;*/
+/*  font-size: 12px;*/
+/*  line-height: 16px;*/
+/*  background: #D8D7FE;*/
+/*  border-radius: 8px;*/
+/*  padding: 8px 12px;*/
+/*}*/
+
+
+.slide {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  position: absolute;
+  gap: 20px;
+}
+
+.ContainerSlide {
+  position: relative;
+  overflow-x: auto;
+  height: 100%;
+}
+
+.containerPresets {
+  margin-bottom: 24px;
+  flex: 1 1 auto;
+  /*min-height: 1px;*/
+  /*margin-bottom: 30px;*/
+}
+
+.keywords__requiredContainer {
+
+}
+
+.containerBlockFlex {
+  /*height: 508px;*/
+}
+
+.presetsTitleImg {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #1F1F22;
+}
+
+.presetsTitleImg img {
+  margin-right: 12px;
+}
+
+.presetsTitle {
+  margin-top: 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #1F1F22;
+  margin-bottom: 12px;
+}
+
+.keywordsPresets {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.presets {
+  overflow: hidden;
+  padding: 16px;
+  gap: 20px;
+  background: #F3F3F8;
+  border-radius: 12px;
+  width: 390px;
+  height: 236px;
+}
+
+.presets .keywordsModalKeywords {
+  width: max-content;
+}
+
+.blockDescription {
+  display: flex;
+}
+
+.professionDescriptionText {
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+}
+
+.blockFlex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 72px;
+  z-index: 10;
+  background: white;
+}
+
+.ModalNone {
+  display: none;
+}
+
+.loadingKeywords {
+  position: absolute;
+  top: 30%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  animation: loader 1s ease-in-out infinite;
+}
+
+@keyframes loader {
+  from {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+.keywordTooltip {
+  box-sizing: content-box;
+  z-index: 3000 !important;
+  background: #FFFFFF;
+  border-radius: 5px;
+  box-shadow: 0 0 0 24px #FFFFFF;
+  position: relative;
+}
+
+.profession-name {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.professionData {
+  margin-right: 60px;
+}
+
+.professionData.editing {
+  transition: all 0.5s;
+  margin-right: 0;
+}
+
+.profession-image {
+  transition: all 0.5s;
+  height: 200px;
+  max-width: 200px;
+}
+
+.profession-image.editing {
+  max-width: 0;
+  height: 0;
+}
+
+.keywordsCustomisationFlex {
+  margin-top: 8px;
+  /*position: relative;*/
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.keywordsInput:focus {
+  border: 1px solid rgba(210, 210, 212, 0.8);
+}
+
+.keywordsInput {
+  border-radius: 8px;
+  border: 1px solid rgba(210, 210, 212, 0.8);
+}
+
+.keywordsModalKeywords {
+  background: var(--color-secondary);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 12px;
+  cursor: default;
+}
+
+.addKeywordsSearch .keywordsModalKeywords {
+  cursor: pointer;
+}
+
+.keywordsModalKeywords:last-child {
+  margin-right: 130px;
+}
+
+.keywords__modal-keywords_selected {
+  border: 1px solid var(--color-5-dark);
+  padding: 7px 11px;
+}
+
+.keywordsSubtext {
+  color: #6e6d7980;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.add-keywords-modal {
+  padding: 10px;
+  border-radius: 16px;
+}
+
+.add-keywords-modal .modal-body {
+  padding: 0;
+  border-radius: 16px;
+  min-height: 600px;
+}
+
+.keywords__required {
+  max-height: max-content;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  /*flex-grow: 5;*/
+  overflow-y: auto;
+}
+
+
+.keywords__add {
+  background: transparent;
+  border-radius: 8px;
+  border: 1px solid var(--color-5-dark);
+  color: var(--color-5-dark);
+  padding: 8px 12px;
+}
+
+.keywords__card {
+  transition: all 0.5s;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #e7e8ee;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.keywords__more-button {
+  color: #6e6d79;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.keywords__accept {
+  cursor: pointer;
+  color: var(--color-5-dark);
+}
+
+.keywords__info {
+  border: 1px solid #d2d2d4;
+  border-radius: 16px;
+}
+
+.keywords__keyword {
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: var(--color-7-light);
+}
+
+.bottom-buttons {
+  transition: all 0.3s;
+  width: 100%;
+  max-width: 900px;
+  position: absolute;
+  top: calc(100% + 8px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bottom-buttons.editing {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  transition: all 0.5s;
+  max-width: 315px;
+  align-items: center;
+  position: absolute;
+  bottom: 3rem;
+  right: 40px;
+}
+
+.button-primary {
+  max-width: 160px;
+  margin-top: 24px;
+  transition: all 0.5s, background 0.3s;
+  color: white;
+  border: 0;
+  background: var(--color-5-dark);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 700;
+}
+
+.button-primary:hover {
+  background: #AE78FE;
+  border-radius: 8px;
+  color: white;
+}
+
+.button-primary:active {
+  background: #7328E2;
+  color: #FFFFFF;
+  border-radius: 8px;
+}
+
+.buttonSecondary {
+  transition: all 0.5s, background 0.3s;
+
+  border-radius: 8px;
+  font-weight: 700;
+  border: 1px solid var(--color-5-dark);
+  background: white;
+  color: var(--color-5-dark);
+  padding: 8px 12px;
+}
+
+.buttonSecondary.inModal {
+  position: absolute;
+  bottom: 24px;
+  right: 16px;
+}
+
+.buttonSecondary:hover {
+  /*background: var(--color-secondary);*/
+  transition: 0.3s;
+}
+
+.keywordsModalAddKeywords {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.keywordsModalAddKeywords::-webkit-scrollbar,
+.keywordsAdded::-webkit-scrollbar,
+.keywords__required::-webkit-scrollbar {
+  width: 6px;
+  background: rgba(243, 243, 248, 0.5);
+}
+
+.keywordsModalAddKeywords::-webkit-scrollbar-thumb,
+.keywordsAdded::-webkit-scrollbar-thumb,
+.keywords__required::-webkit-scrollbar-thumb {
+  background: #e7e8ee;
+  border-radius: 6px;
+}
+
+.addKeywordsSearch {
+  transition: all 0.5s, border 0.2s;
+  display: flex;
+  flex-direction: column;
+  max-height: 0px;
+  min-height: 0px;
+  overflow: hidden;
+  margin-top: 8px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(231, 232, 238, 0);
+  background: white;
+  padding: 0px;
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+}
+
+.professionsContainer {
+  transition: all 0.5s;
+  /*position: relative;*/
+  width: 100%;
+  max-width: 550px;
+  margin-right: 24px;
+  /*min-width: 320px;*/
+  flex-shrink: 2;
+}
+
+.professionDescription {
+  position: sticky;
+  top: 72px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.buttonSecondary:active {
+  background: var(--color-secondary);
+  color: var(--color-5-dark);
+  transition: 0.3s;
+}
+
+.editor {
+  transition: all 0.5s;
+  width: 0;
+  overflow: hidden;
+  padding-right: 0px;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor.extended {
+  width: 100%;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.editor-inner-container {
+  position: relative;
+  min-width: 400px;
+}
 
 .keywords__warning {
   background: var(--gray-100);
@@ -273,172 +631,361 @@
   padding: 1rem;
 }
 
+.profession-image-mobil {
+  display: none;
+}
+
+.mobi-opacity-block {
+  display: none;
+}
+
+.blockDescription {
+  margin-top: 40px;
+  background: #F3F3F8;
+  border-radius: 12px;
+  padding: 20px 16px 20px 16px;
+}
+
+.blockDescriptionMobil.bottom {
+  display: none;
+}
+
 @media screen and (max-width: 879px) {
-  .professionDetails{
-    .headerFlex {
-      .currentHeader {
-        margin-bottom: 17px;
-      }
-      .fontWeightBold {
-
-      }
-      .bottomLeftContainer {
-        z-index: 1000;
-        padding: 15px;
-        position: fixed;
-        bottom: 0;
-        background: white;
-        width: calc(100%);
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-
-        .clear {
-          order: 2;
-          border: 1px solid #8533FF;
-          border-radius: 8px;
-          &.disable {
-          }
-        }
-        .save {
-
-        }
-      }
-    }
-    .keywordsCustomisationFlex {
-      flex-direction: column;
-      height: unset;
-      .professionsContainer {
-        max-width: inherit;
-        margin-right: inherit;
-        .professionDescription {
-
-          .keywords__card {
-            display: flex;
-            flex-direction: column;
-            padding: 16px;
-            margin-bottom: inherit !important;
-              max-height: 488px;
-              &.editing {
-                padding-bottom: 0;
-                padding-top: 0;
-                border: 0px solid #e7e8ee;
-                margin-bottom: 0;
-                margin-top: 0;
-              }
-
-            .profession-data {
-
-            }
-          }
-
-        }
-      }
-
-    }
-    .subheader {
-      top: 65px;
-      .subheader-title {
-
-      }
-      .subheader-counter {
-
-      }
-    }
-    .skeleton {
-
-      &::after, &::before & div{
-      }
-    }
-
-    @keyframes shine-lines {
-      0% {
-      }
-
-      40%, 100% {
-      }
-    }
-
-    .blockDescription {
-      margin-bottom: 40px;
-      margin-top: 20px;
-
-      .professionDescriptionText {
-
-        .build-trajectory-text {
-
-        }
-
-      }
-
-      .lamp-icon {
-
-      }
-    }
-    .blockDescriptionMobil{
-      display: none;
-      &.bottom{
-        z-index: 25;
-        padding: 15px;
-        position: fixed;
-        bottom: 0;
-        /*z-index: 10000;*/
-        background: white;
-        width: calc(100%);
-        left: 0;
-        display: flex;
-        flex-direction: column;
-      }
-      .button-primary {
-        padding: 10px 0 10px 0;
-        margin: inherit;
-        max-width: inherit;
-        &:hover {
-
-        }
-
-        &:active {
-
-        }
-      }
-    }
-
-    .right-flex {
-      width: 100%;
-      .containerPresets {
-        height: unset;
-      }
-      .containerBlockFlex {
-        .keywords__required {
-          padding-bottom: 74px;
-          overflow: inherit;
-          overflow-y: inherit;
-          max-height: inherit;
-          .modalKeywords {
-
-          }
-        }
-      }
-    }
-    .blockFlex {
-      top: 65px;
-      padding-bottom: 8px;
-
-      .edit-button {
-
-        .edit-button-text {
-
-        }
-        .edit-button-icon {
-          display: none;
-        }
-      }
-
-    }
+  .prompt button {
+    text-align: center;
   }
 
+  .edit-button-icon {
+    display: none;
+  }
+
+  .currentHeader {
+    margin-bottom: 17px;
+  }
+
+  .right-flex {
+    width: 100%;
+  }
+
+  .containerPresets {
+    height: unset;
+  }
+
+  .bottomLeftContainer .clear {
+    order: 2;
+    border: 1px solid #8533FF;
+    border-radius: 8px;
+  }
+
+  .bottomLeftContainer .save {
+
+  }
+
+  .subheader {
+    top: 65px;
+  }
+
+  .subheader-mobile {
+    background: #fff;
+    padding-bottom: 8px;
+  }
+
+  .blockFlex {
+    top: 65px;
+    padding-bottom: 8px;
+  }
+
+  .presets {
+    min-width: 290px !important;
+  }
+
+  .addKeywordsSearch .extended {
+    width: 100%;
+  }
+
+  .ContainerSlide {
+    height: 300px;
+  }
+
+  .blockDescription {
+    margin-bottom: 40px;
+    margin-top: 20px;
+  }
+
+  .deck {
+    display: none;
+  }
+
+  .keywordsCustomisationFlex {
+    flex-direction: column;
+    height: unset;
+  }
+
+  .editor {
+    width: 100%;
+    max-height: 0;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .editor.extended {
+    /*ma x-height: 50%;*/
+    /*padding-right: 8px;*/
+    /*padding-left: 8px;*/
+  }
+
+  .bottom-buttons {
+    position: relative;
+    display: block;
+  }
+
+  .mobi-opacity-block {
+    display: block;
+    width: min-content;
+  }
+
+  .professionData {
+    margin-bottom: 20px;
+  }
+
+  .professionsContainer {
+    max-width: inherit;
+    margin-right: inherit;
+  }
+
+  .bottomLeftContainer {
+    z-index: 1000;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    background: white;
+    width: calc(100%);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+  }
+
+  .professionsContainer .fontWeightBold {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #1F1F22;
+    margin-top: 16px;
+    margin-bottom: 16px !important;
+  }
+
+  .keywordsModalKeywords {
+    /*font-size: 2vw!important;*/
+  }
+
+  .buttonSecondary.inModal {
+    width: calc(100% - 32px);
+    margin-bottom: inherit;
+    /*margin-right: 8px;*/
+    /*bottom: calc(0% + 16px);*/
+    background: white;
+  }
+
+  /*.font-weight-bold {*/
+  /*  transition: all 0.2s;*/
+  /*  font-size: 16px;*/
+  /*  max-height: 20px;*/
+  /*}*/
+  .editor.extended {
+    max-height: 400px;
+    padding: inherit;
+  }
+
+  .editor-inner-container {
+    min-width: inherit;
+  }
+
+  .bottom-buttons.editing {
+    position: fixed;
+    bottom: 0;
+    background: white;
+    width: calc(100%);
+    left: 0;
+    top: unset;
+
+    padding: 0 15px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    max-width: inherit;
+    align-items: inherit;
+    justify-content: space-between;
+    right: inherit;
+    margin-top: 22px;
+  }
+
+  .keywordsCustomisationFlex.editing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .profession-container {
+    /*order: 2;*/
+  }
+
+  .keywords__card {
+    max-height: 488px;
+  }
+
+  .fontWeightBold.editing,
+  .keywords__card.editing {
+    overflow: hidden;
+    max-height: 0;
+  }
+
+  .keywords__card.editing {
+    padding-bottom: 0;
+    padding-top: 0;
+    border: 0px solid #e7e8ee;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .bottom-container {
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    background: white;
+    width: calc(100%);
+    left: 0;
+  }
+
+  .blob-0-top-left {
+    margin-top: 16px;
+    font-size: 4vw;
+  }
+
+  .profession-name {
+    /*font-size: 4vw;*/
+    /*margin-bottom: inherit;*/
+  }
+
+  .keywords__card {
+    padding: 16px;
+    margin-bottom: inherit !important;
+  }
+
+  .keywords__required {
+    max-height: inherit;
+    /*margin-bottom: 100px;*/
+  }
+
+  .professionData {
+    margin-right: inherit;
+    margin-bottom: inherit !important;
+  }
+
+  .profession-image {
+    display: none;
+  }
+
+  .profession-image-mobil {
+    display: inherit;
+    width: 100%;
+    max-height: 120px;
+  }
+
+  .buttonSecondary {
+    padding: 10px 0 10px 0;
+    margin-bottom: 12px;
+  }
+
+  .bottom-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blockDescriptionMobil {
+    display: none;
+  }
+
+  .blockDescriptionMobil.bottom {
+    z-index: 25;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    /*z-index: 10000;*/
+    background: white;
+    width: calc(100%);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button-primary {
+    padding: 10px 0 10px 0;
+    margin: inherit;
+    max-width: inherit;
+  }
+
+  .keywords__card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .keywords__required {
+    padding-bottom: 74px;
+    overflow: inherit;
+    overflow-y: inherit;
+  }
+
+  .keywordsModalAddKeywords.extended {
+    margin-bottom: 55px;
+  }
+
+  .keywordsSubtext.extended {
+    /*display: none;*/
+    opacity: 0;
+    height: 0;
+  }
+
+  .keywordsSubtext.extended .textCenter {
+    margin-top: 36px;
+    margin-bottom: 48px;
+  }
+
+  .professionData p {
+    /*font-size:  4vw;*/
+  }
 
 
 }
 
+@media screen and (min-width: 492px) and (max-width: 765px) {
+  .professionData img {
+    max-height: 220px;
+  }
+
+  .professionData p {
+    /*font-size: 3vw;*/
+  }
+
+  .bottom-buttons {
+    margin-top: inherit;
+  }
+}
+
+@media screen and (max-width: 433px) {
+
+  .bottom-buttons.editing {
+    padding: 0 15px;
+  }
+
+  .bottom-container {
+    padding: 0 15px !important;
+  }
+
+
+  .keywordsModalKeywords {
+    /*font-size: 3vw!important;*/
+  }
+}

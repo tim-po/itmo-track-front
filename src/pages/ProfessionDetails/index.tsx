@@ -5,85 +5,61 @@ import {BASE_URL} from "../../constants";
 import axios from "axios";
 import {KeywordType, PresetType, Profession} from "../../types";
 import BackButtonContext from "../../Context/BackButton";
-import ModalsContext from "../../Context/KeywordsModal";
+import ModalsContext from "../../Context/Modal";
 import keyword from "../../components/Keyword";
 import Keyword from "../../components/Keyword";
 import {makeEmptyList} from "../../utils/general";
 import './index.scss'
 import SelectedPresets from "../../components/SelectedPresets";
+import {useProfession} from "../../Models/useProfession";
+import Keywords from "../../components/Keywords";
+import HeaderContext from "Context/Header";
+import SkillSets from "../../components/SkillSets";
 
 // CONSTANTS
 
 // DEFAULT FUNCTIONS
 
-
 const ProfessionDetails = () => {
 
   const navigate = useNavigate()
   const {setBg} = useContext(BgContext)
+  const {setIsHeaderAnimated} = useContext(HeaderContext)
   const {setNewBackButtonProps} = useContext(BackButtonContext)
-  const {setKeywordsForModal} = useContext(ModalsContext)
+  // const {setKeywordsForModal} = useContext(ModalsContext)
   const [searchParams, setSearchParams] = useSearchParams()
+  const {profession, presets, keywords} = useProfession(searchParams.get('id') || '')
 
   const [isLoading, setIsLoading] = useState(false);
   const [requiredWordsLimit, setRequiredWordsLimit] = useState(0);
-  const [profession, setProfession] = useState<Profession | undefined>(undefined);
-  const [presets, setPresets] = useState<PresetType[]>([]);
-  const [selectedPresetIds, setSelectedPresetIds] = useState<string[]>([]);
-  const [addedKeywords, setAddedKeywords] = useState<KeywordType[]>([]);
 
   useEffect(() => {
     setBg('white');
-    getProfession()
-    getPresets()
-    loadAddedWordsFromLocal()
 
     if (searchParams.get('view') === 'main') {
       setNewBackButtonProps('Все профессии', '/professions')
-    } else {
-      setNewBackButtonProps(`${profession?.name}: описание`, `/professionDetails?view=main&id=${searchParams.get('id')}`)
     }
   }, [])
 
   useEffect(() => {
+    if (searchParams.get('view') !== 'main' && profession) {
+      setNewBackButtonProps(`${profession?.name}: описание`, `/professionDetails?view=main&id=${searchParams.get('id')}`)
+    }else{
+      setNewBackButtonProps('Все профессии', '/professions')
+    }
+    }, [searchParams.get('view'), profession])
+
+  useEffect(() => {
     calculateRequiredLimit()
   }, [profession])
-
-  const loadAddedWordsFromLocal = () => {
-    let keywords = localStorage.getItem('addedKeywords')
-    if (keywords === '' || !keywords) {
-      setAddedKeywords([])
-    } else {
-      setAddedKeywords(JSON.parse(keywords))
-    }
-  }
-
-  const getPresets = async () => {
-    const response = await axios.get(`${BASE_URL}/presets/`)
-    setPresets(response.data)
-    let ids = localStorage.getItem('presetIds')
-    if (ids) {
-      setSelectedPresetIds(ids.split(','))
-    }
-  }
-  const getProfession = async () => {
-    const response = await axios.get(`${BASE_URL}professions/${searchParams.get('id')}/`)
-    setProfession(response.data)
-  }
 
   const openTrajectoryChoice = async () => {
     setIsLoading(true)
     if (!profession) {
       return
     }
-    const selectedPresets = presets.filter(preset => selectedPresetIds.includes(preset.id))
-    let postKeywords = [...addedKeywords, ...profession.related_keywords].map(item => item.id)
-    selectedPresets.forEach(preset => {
-      preset.keywords.forEach(word => {
-        postKeywords.push(word.id)
-      })
-    })
-    const response = await axios.post(`${BASE_URL}trajectories/?top_n=3`, {'keywords': postKeywords})
+   
+    const response = await axios.post(`${BASE_URL}trajectories/?top_n=3`, {'keywords': keywords.allIds})
 
     let ids: string[] = []
     response.data.forEach((el: any) => ids.push(el.id))
@@ -96,25 +72,25 @@ const ProfessionDetails = () => {
 
   const editKeywords = () => {
     navigate(`professionDetails?id=${profession?.id}&view=keywords`)
+    setNewBackButtonProps(`${profession?.name}: описание`, `/professionDetails?view=main&id=${searchParams.get('id')}`)
   }
 
   const editSkillSets = () => {
     navigate(`professionDetails?id=${profession?.id}&view=skills`)
+    setNewBackButtonProps(`${profession?.name}: описание`, `/professionDetails?view=main&id=${searchParams.get('id')}`)
   }
 
-  const openKeywordsModal = () => {
-    setKeywordsForModal(profession?.related_keywords || [])
-  }
+  // const openKeywordsModal = () => {
+  //   setKeywordsForModal(profession?.related_keywords || [])
+  // }
 
   const clearChoice = () => {
     switch (searchParams.get('view')) {
       case 'keywords':
-        setAddedKeywords([])
-        localStorage.setItem('addedKeywords', JSON.stringify([]))
+        keywords.clear()
         break;
       case 'skills':
-        setSelectedPresetIds([])
-        localStorage.setItem('presetIds', '')
+        presets.clear()
         break;
       default:
         break;
@@ -140,17 +116,15 @@ const ProfessionDetails = () => {
     }
   }
 
-  // const deleteKeyword = (keyword: KeywordType) => {
-  //     const mewKeywords = [...addedKeywords].filter(item => item.id != keyword.id)
-  //     setAddedKeywords([...addedKeywords].filter(item => item.id != keyword.id))
-  // }
+  const deleteKeyword = (keyword: KeywordType) => {
+      keywords.remove(keyword)
+  }
 
   const isClearButtonDisabled = () => {
-    if (searchParams.get('view') === 'keywords' && addedKeywords.length < 1) {
+    if (searchParams.get('view') === 'keywords' && keywords.added.length < 1) {
       return true
     }
-    return searchParams.get('view') === 'skills' && selectedPresetIds.length < 1;
-
+    return searchParams.get('view') === 'skills' && presets.selected.length < 1;
   }
 
   return (
@@ -176,7 +150,7 @@ const ProfessionDetails = () => {
               <p className="subheader subheader-mobile">Описание</p>
               <div className="keywords__card">
                 <div className="profession-data">
-                  {profession &&
+                  {!profession &&
                     <>
                       {makeEmptyList(40).map(index => {
                         return (
@@ -198,26 +172,31 @@ const ProfessionDetails = () => {
               </div>
               <div className="blockDescription">
                 <div className="professionDescriptionText">
-                  {!selectedPresetIds.length &&
+                  {presets.selected.length === 0 &&
                     <span className="build-trajectory-text">
                       Мы уже собрали для тебя готовый набор ключевых слов. Этого будет достаточно чтобы построить траекторию
                       <br/>
                       Ты можешь продолжить без изменений или добавить то, что хочешь изучить дополнительно.
                     </span>
                   }
-                  {selectedPresetIds.length &&
+                  {presets.selected.length > 0 &&
                     <span>
                     Вау, ты добавил новые навыки! Теперь можно строить траекторию
                    </span>
                   }
                   <div className="blockDescriptionMobil">
                     <button className="button-primary" onClick={openTrajectoryChoice}>
-                      {selectedPresetIds.length ? 'Мне все нравится' : 'Построить'}
+                      {presets.selected.length ? 'Мне все нравится' : 'Построить'}
                     </button>
                   </div>
                 </div>
-                {!selectedPresetIds.length && <img src="/static/professionLamsIcon.svg" className="lamp-icon" />}
-                {selectedPresetIds.length && <img src="/static/finger-like.svg" className="like" alt="icon"/>}
+                {presets.selected.length === 0 &&
+                  <img src="/static/professionLamsIcon.svg" className="lamp-icon"
+                       alt="icon"/>
+                }
+                {presets.selected.length > 0 &&
+                  <img src="/static/finger-like.svg" className="like" alt="icon"/>
+                }
               </div>
               {/*<div*/}
               {/*  className="keywords__warning mb-2"*/}
@@ -235,13 +214,13 @@ const ProfessionDetails = () => {
               <div className="blockFlex">
                 <div id="blob-1-top-left" className="subheader">
                   <span className="subheader-title">Наборы навыков</span>
-                  {selectedPresetIds.length &&
+                  {presets.selected.length > 0 &&
                     <div className="subheader-counter">+{
-                      selectedPresetIds.length
+                      presets.selected.length
                     }</div>
                   }
                 </div>
-                {selectedPresetIds.length &&
+                {presets.selected.length > 0 &&
                   <div onClick={editSkillSets} className="edit-button">
                     <img src="/static/MagicWand.svg" className="edit-button-icon"/>
                     <span className="edit-button-text">Редактировать</span>
@@ -249,15 +228,15 @@ const ProfessionDetails = () => {
                 }
               </div>
               {/*<LoadingScreen header="Подбираем траектории" isLoading={isLoading}/>*/}
-              {/*<SelectedPresets canDelete={false} selectedPresets={}/>*/}
+              <SelectedPresets isHidden={false} selectedPresets={presets.selected}/>
             </div>
             <div className="containerBlockFlex">
               <div className="blockFlex">
                 <div id="blob-0-top-left" className="subheader">
                   <span className="subheader-title">Ключевые слова</span>
-                  {addedKeywords.length &&
+                  {keywords.added.length > 0 &&
                     <div className="subheader-counter">+{
-                      addedKeywords.length
+                      keywords.added.length
                     }</div>
                   }
                 </div>
@@ -266,8 +245,8 @@ const ProfessionDetails = () => {
                   <span className="edit-button-text">Редактировать</span>
                 </div>
               </div>
-              <div className="row keywords__required" id="blob-0-bottom-right">
-                {!profession || !profession.related_keywords.length &&
+              <div className="keywords__required" id="blob-0-bottom-right">
+                {(!profession || !profession.related_keywords.length) &&
                   <>
                     {makeEmptyList(20).map(index => {
                       return (
@@ -283,7 +262,18 @@ const ProfessionDetails = () => {
 
                 {profession &&
                   <>
-                    {profession.related_keywords.slice(0, 25).map(keyword => {
+                    {keywords.added.slice(0, 25).map(keyword => {
+                      return (
+                        <Keyword
+                          deletable={false}
+                          key={keyword.text}
+                          keyword={keyword}
+                          bg-color="'var(--color-secondary)'"
+                          // onDeleteSelf={()=>deleteKeyword(keyword)}
+                        />
+                      )
+                    })}
+                    {keywords.display.slice(0, 25).map(keyword => {
                       return (
                         <Keyword
                           deletable={false}
@@ -297,7 +287,7 @@ const ProfessionDetails = () => {
                   </>
                 }
                 {profession && profession.related_keywords.length > 25 &&
-                  <button onClick={openKeywordsModal} className="modalKeywords ">
+                  <button className="modalKeywords ">
                     +{profession.related_keywords.length - 25}
                   </button>
                 }
@@ -309,15 +299,15 @@ const ProfessionDetails = () => {
       }
       <div className="blockDescriptionMobil bottom">
         <button className="button-primary" onClick={openTrajectoryChoice}>
-          {selectedPresetIds.length ? 'Мне все нравится' : 'Построить'}
+          {presets.selected.length ? 'Мне все нравится' : 'Построить'}
         </button>
       </div>
-      {/*{searchParams.get('view') === 'keywords' &&*/}
-      {/*  <Keywords/>*/}
-      {/*}*/}
-      {/*{searchParams.get('view') === 'skills' &&*/}
-      {/*  <SkillSets/>*/}
-      {/*}*/}
+      {profession && searchParams.get('view') === 'keywords' &&
+        <Keywords keywords={keywords} />
+      }
+      {searchParams.get('view') === 'skills' &&
+        <SkillSets presets={presets}/>
+      }
     </div>
   )
 }
