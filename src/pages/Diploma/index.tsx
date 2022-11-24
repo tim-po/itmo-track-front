@@ -11,6 +11,7 @@ import ModalsContext from "Context/KeywordsModal";
 import Card from "components/DiplomaGeneral/Card";
 import GenericModal from "components/GenericModal";
 import ShareModal from "components/Modals/ShareModal";
+import { useSearchParams } from "react-router-dom";
 
 
 type DiplomaPropType = {}
@@ -25,9 +26,11 @@ const Diploma = (props: DiplomaPropType) => {
   const [keywords, setKeywords] = useState<KeywordType[]>([]);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
+  const [searchParams] = useSearchParams()
+
   const getDiplomaData = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}trajectories/1880/diploma/`)
+      const response = await axios.get(`${BASE_URL}trajectories/${searchParams.get('id')}/diploma/`)
       setDiplomaData(response.data)
     } catch (e) {
       console.log(e)

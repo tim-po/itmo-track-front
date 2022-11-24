@@ -1,6 +1,76 @@
-.marginText{
-  margin-bottom: 24px;
+.diplomaContainer {
+  padding-top: 24px;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+  .DiplomaCard {
+    border-radius: 16px;
+    padding: 25px;
+    border: 0;
+    .tilesFlex{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px
+    }
+
+    .tileHeader{
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+  }
+  .leftTiles{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 20%;
+    max-width: 514px;
+    min-width: 300px;
+    flex-grow: 3;
+  }
+  .MobilFix{
+    display: block;
+  }
+    .marginText{
+      margin-bottom: 24px;
+    }
+    .d-flex{
+      .MainButton{
+        margin-right: 0.5rem
+      }
+      .mainButtonDiploma {
+        font-size: 14px;
+        padding: 10px 12px;
+      }
+      .secondary-button-diploma {
+        font-size: 14px;
+        padding: 10px 12px;
+      }
+      .secondary-button-diploma-with-icon::after{
+        content: url("../../static/share.svg");
+        margin-left: 10px;
+      }
+
+  }
+  .rightTiles{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    flex-grow: 5;
+    .mobi-opacity-block{
+      display: none;
+    }
+  }
 }
+
+
+
+
 .RandomFeedback.NotVisible{
   transform: scale(0);
   transition-duration: 0.3s;
@@ -18,261 +88,110 @@
   right: 50px;
   border-radius: 16px;
 }
-.MobilFix{
-  display: block;
-}
-.rightTiles{
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  flex-grow: 5;
-}
-.MainButton{
-  margin-right: 0.5rem
-}
-.leftTiles{
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  width: 20%;
-  max-width: 514px;
-  min-width: 300px;
-  flex-grow: 3;
-}
 
-.tilesFlex{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px
-}
 
-.tileHeader{
-  margin-bottom: 12px;
-  font-weight: 600;
-}
 
-.diplomaContainer {
-  padding-top: 24px;
-  max-width: 1500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  width: 100%;
-}
 
-.CourseButtonDiploma {
-  border: 0;
-  font-weight: 500;
-  font-size: 14px;
-  padding: 10px 12px;
-  border-radius: 8px 8px 0px 0px;
-  color: var(--color-5-dark);
-  background-color: white;
-}
-
-.DiplomaCard {
-  border-radius: 16px;
-  padding: 25px;
-  border: 0;
-}
-
-.CourseButton {
-  background: transparent;
-  border: 0;
-  font-weight: 400;
-  font-size: 14px;
-  padding: 10px 12px;
-  border-radius: 8px 8px 0px 0px;
-}
-
-.controlTypeCard {
-  cursor: pointer;
-  background: #78a3ec;
-  border-radius: 20px;
-  color: white;
-  min-width: 180px;
-  height: 104px;
-  padding: 20px;
-}
-
-.classesTypeCard {
-  cursor: pointer;
-  border-radius: 20px;
-  color: white;
-  min-width: 180px;
-  height: 134px;
-  padding: 20px;
-  background: #78a3ec;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-.HeaderDivider {
-  padding: 0;
-  margin: 0;
-  background: white;
-  height: 2px;
-  border: 0;
-}
-
-.mainButtonDiploma {
-  font-size: 14px;
-  padding: 10px 12px;
-}
-
-.secondary-button-diploma {
-  font-size: 14px;
-  padding: 10px 12px;
-}
-
-.textSmall {
-  font-size: 12px;
-  line-height: 16px;
-}
-
-.bachelor {
-  position: relative;
-  padding-left: 24px;
-}
-
-.bachelor::before {
-  position: absolute;
-  left: 0px;
-  top: 1px;
-  content: url("../../static/star.svg");
-  width: 16px;
-  height: 16px;
-}
-
-.mobi-opacity-block{
-  display: none;
-}
-
-.secondary-button-diploma-with-icon::after{
-  content: url("../../static/share.svg");
-  margin-left: 10px;
-}
 
 @media screen and (max-width: 1000px){
-  .marginText{
-    font-size: 12px;
-    margin-bottom: 12px;
-  }
-  .tileHeader.education{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px!important;
-    line-height: 22px;
-    color: #1F1F22;
-  }
-  .tileHeader{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px!important;
-    line-height: 22px;
-    /* identical to box height, or 138% */
-
-
-    /* Text/Black */
-
-    color: #1F1F22;
-  }
-  .slider, .DiplomaCard.slider .CardBody{
-    padding-right: inherit!important;
-  }
-  .DiplomaCard.mt-4{
-    margin-top: 16px !important;
-  }
-  .tilesFlex.rent{
-    display: flex;
-    overflow-x: scroll;
-    flex-wrap: nowrap;
-    padding-bottom: 280px;
-  }
-  .leftTiles{
-    width: 100%;
-    max-width: inherit;
-  }
-  .tilesFlex{
-    display: inherit;
-  }
-  .tilesFlex .classesTypeCard{
-    display: flex;
-    border-radius: 8px;
-    align-items: center;
-    height: inherit;
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 100%;
-    margin-bottom: 8px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-  }
-  .tilesFlex .classesTypeCard h2{
-    width: 50px;
-    margin: inherit!important;
-  }
-  .diplomaContainer{
+  .diplomaContainer {
     padding-top: 0;
     grid-gap: 16px;
+    .DiplomaCard {
+      margin-top: 16px !important;
+      .tilesFlex {
+        display: inherit;
+        &.rent {
+          display: flex;
+          overflow-x: scroll;
+          flex-wrap: nowrap;
+          padding-bottom: 280px;
+        }
+      }
+      .tileHeader{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px!important;
+        line-height: 22px;
+        color: #1F1F22;
+        &.education{
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px!important;
+          line-height: 22px;
+          color: #1F1F22;
+        }
+      }
+    }
+    .leftTiles{
+      width: 100%;
+      max-width: inherit;
+    }
+    .MobilFix{
+      padding: inherit;
+      z-index: 10;
+      bottom: 0;
+      background: #F3F3F8;
+       .DiplomaCard{
+        background: none;
+         h6 {
+           font-family: 'Inter';
+           font-style: normal;
+           font-weight: 400;
+           font-size: 14px;
+         }
+      }
+    }
+    .marginText{
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    .d-flex{
+      flex-direction: column;
+      .MainButton{
+      }
+      .mainButtonDiploma {
+        width: 100%;
+        padding: 6px 8px;
+        text-align: center;
+        margin: 0 0 12px 0;
+        &a{
+          text-decoration: none;
+        }
+      }
+      .secondary-button-diploma {
+        width: 100%;
+        padding: 6px 8px;
+        text-align: center;
+        margin: 0 0 12px 0;
+      }
+      .SecondaryButton{
+        margin-bottom: inherit!important;
+      }
+    }
+    .rightTiles{
+      .mobi-opacity-block{
+        display: none;
+      }
+    }
   }
-  .DiplomaCard .CardBody{
-    padding: 16px;
-  }
-  .MobilFix .DiplomaCard{
-    background: none;
-  }
-  .MobilFix .DiplomaCard h6{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-  }
-  .MobilFix{
-    padding: inherit;
-    z-index: 10;
-    bottom: 0;
-    background: #F3F3F8;
-  }
-  .MobilFix .CardBody{
-    padding: 0;
-  }
-  .MobilFix .d-flex{
-    flex-direction: column;
-  }
-  .secondary-button-diploma, .mainButtonDiploma{
-    width: 100%;
-    padding: 6px 8px;
-    text-align: center;
-    margin: 0 0 12px 0;
-  }
-  .SecondaryButton{
-    margin-bottom: inherit!important;
-
-  }
-  a.mainButtonDiploma{
-    text-decoration: none;
-  }
-  .mobi-opacity-block{
-    display: none;
-  }
-
 }
 @media screen and (max-width: 433px) {
-  .MobilFix {
-    padding: 0 15px !important;
-  }
-  .mobi-opacity-block{
-    display: block;
-    height: 0;
-    width: min-content;
+  .diplomaContainer {
+    padding-top: 0;
+    grid-gap: 16px;
+
+    .MobilFix{
+      padding: 0 15px !important;
+    }
+    .rightTiles{
+      .mobi-opacity-block{
+        display: block;
+        height: 0;
+        width: min-content;
+      }
+    }
   }
 }

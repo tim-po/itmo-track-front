@@ -81,7 +81,8 @@
 
           .FlexButton {
             margin-bottom: 40px;
-
+            display: flex;
+            gap: 24px;
             .SecondaryButton {
               color: var(--color-5-dark);
               border-radius: 8px;

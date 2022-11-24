@@ -1,11 +1,99 @@
+.ProfessionsPageContainer {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
 
-.skeleton-v2 {
-  opacity: .7;
-  animation: skeleton-loading 1s linear infinite alternate;
-  width: 540px;
-  height: 200px;
-  border-radius: 16px;
+  .ProfessionsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 1920px;
+
+    .CardHeaderWidth {
+      width: calc(100%);
+
+      .ProfessionTitle {
+        font-weight: 700;
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+    }
+    .ProfessionContainer {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      margin-bottom: 24px;
+
+      .skeleton-v2 {
+        opacity: .7;
+        animation: skeleton-loading 1s linear infinite alternate;
+        width: 540px;
+        height: 200px;
+        border-radius: 16px;
+      }
+      .ProfessionCardButton {
+        background: none;
+        border: none;
+        outline: none;
+        padding: 0 0;
+        height: max-content;
+        max-width: 540px;
+        min-width: 420px;
+        flex-shrink: 0;
+      }
+    }
+    .ProfessionModalBottom {
+      z-index: 2;
+      max-height: 72px;
+      //position: absolute;
+      bottom: 32px;
+      right: 32px;
+      position: fixed;
+      max-width: 504px;
+      background: #F3F3F8;
+      padding: 16px;
+      transition-duration: 0.4s;
+      border-radius: 12px;
+      &ProfessionModalBottomNon{
+        right: -600px;
+        overflow: hidden;
+        transition-duration: 0.4s;
+      }
+      .CloseFeedback {
+        border: inherit;
+        background: inherit;
+        position: absolute;
+        right: 16px;
+      }
+      .Text {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #1F1F22;
+        .LinkText {
+          color: #8533FF;
+          background: inherit;
+          padding: inherit;
+          border: inherit;
+        }
+
+      }
+
+    }
+  }
 }
+
 
 @keyframes skeleton-loading {
   0% {
@@ -16,231 +104,90 @@
   }
 }
 
-.ProfessionModalBottom.ProfessionModalBottomNon {
-  right: -600px;
-  overflow: hidden;
-  transition-duration: 0.4s;
-}
-
-.ProfessionModalBottom .Text .LinkText {
-  color: #8533FF;
-  background: inherit;
-  padding: inherit;
-  border: inherit;
-}
-
-.ProfessionModalBottom .Text {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: #1F1F22;
-}
-
-.ProfessionModalBottom .CloseFeedback {
-  border: inherit;
-  background: inherit;
-  position: absolute;
-  right: 16px;
-}
-
-.ProfessionModalBottom {
-  z-index: 2;
-  max-height: 72px;
-  //position: absolute;
-  bottom: 32px;
-  right: 32px;
-  position: fixed;
-  max-width: 504px;
-  background: #F3F3F8;
-  padding: 16px;
-  transition-duration: 0.4s;
-  border-radius: 12px;
-}
-
-.ProfessionCardButton {
-  background: none;
-  border: none;
-  outline: none;
-  padding: 0 0;
-  height: max-content;
-  max-width: 540px;
-  min-width: 420px;
-  flex-shrink: 0;
-}
-
-.ProfessionContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-
-  margin-bottom: 24px;
-}
-
-.spinner-container {
-  width: 100%;
-  min-height: 800px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ProfessionTitle {
-  font-weight: 700;
-  font-size: 24px;
-  margin-bottom: 16px;
-}
-
-.ModalHeader {
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-.CardHeaderWidth {
-  width: calc(100%);
-}
-
-.ModalText {
-  margin-bottom: 24px;
-}
-
-.ProfessionsPageContainer {
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-}
-
-.ProfessionsContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  max-width: 1920px;
-}
-
-.ProfessionButton {
-  transition: 0.3s;
-  align-self: center;
-  background: var(--color-5-dark);
-  color: white;
-  font-size: 14px;
-  font-weight: 700;
-  border: 0;
-  border-radius: 8px;
-  padding: 8px 12px;
-}
-
-.ProfessionButton:hover {
-  background: #AE78FE;
-  color: white;
-}
-
-.ProfessionButton:active {
-  background: #7328E2;
-  color: white;
-  transition: 0.3s;
-}
 
 
-.MainModal {
-  border-radius: 1rem;
-  padding: 0;
-}
 
-.MainModal .ModalBody {
-  border-radius: 1rem;
-  padding: 0;
-}
 
-.ProfessionModal {
-  padding: 1.5rem;
-}
-
-.ModalImage {
-  width: 100%;
-  border-radius: 1rem 1rem 0 0;
-}
-
-.ProfessionSecondaryButton {
-  color: var(--color-5-dark);
-  border-radius: 8px;
-  padding: 0.5rem 0.75rem;
-  background: white;
-  border: 0;
-  transition: 0.3s;
-}
-
-.ProfessionSecondaryButton:hover {
-  background: #F3F3FE;
-  color: #AE78FE;
-  transition: 0.3s;
-}
-
-.ProfessionSecondaryButton:active {
-  background: #F3F3FE;
-  color: #7328E2;
-  transition: 0.3s;
-}
 
 @media screen and (max-width: 433px) {
-  .ProfessionCardButton {
-    min-width: 420px;
-  }
-  .Content {
-    padding: 0 15px !important;
-  }
-  .Header {
-    padding: 1.5rem 10px !important;
-  }
-  .CardHeaderWidth {
-    width: inherit;
+
+
+  .ProfessionsPageContainer {
+    .ProfessionsContainer {
+      .CardHeaderWidth {
+        width: inherit;
+
+      }
+      .ProfessionContainer {
+        margin-bottom: 24px;
+        .ProfessionCardButton {
+          min-width: 340px;
+          max-width: 100%;
+
+        }
+      }
+
+    }
   }
 
-  .ProfessionCardButton {
-    min-width: 340px;
-    max-width: 100%;
-  }
+
+
+
+
+
 
 }
 
 @media screen and (max-width: 560px) {
-  .skeleton {
-    width: 325px;
-    height: 365px;
+  .ProfessionsPageContainer {
+    .ProfessionsContainer {
+      .ProfessionContainer {
+        .skeleton {
+          width: 325px;
+          height: 365px;
+        }
+      }
+      .ProfessionModalBottom {
+        z-index: 2;
+        width: calc(100% - 32px);
+        max-height: 500px;
+        right: 16px;
+        //position: absolute;
+        position: fixed;
+        max-width: 420px;
+        background: #F3F3F8;
+        padding: 16px;
+        transition-duration: 0.4s;
+        border-radius: 12px;
+        &ProfessionModalBottomNon{
+          right: -100%;
+          overflow: hidden;
+          transition-duration: 0.4s;
+        }
+        .Text {
+          .LinkText {
+            text-align: left;
+          }
+
+        }
+
+      }
+    }
   }
-  .ProfessionModalBottom .Text .LinkText {
-    text-align: left;
-  }
-  .ProfessionModalBottom.ProfessionModalBottomNon {
-    right: -100%;
-    overflow: hidden;
-    transition-duration: 0.4s;
-  }
-  .ProfessionModalBottom {
-    z-index: 2;
-    width: calc(100% - 32px);
-    max-height: 500px;
-    right: 16px;
-    //position: absolute;
-    position: fixed;
-    max-width: 420px;
-    background: #F3F3F8;
-    padding: 16px;
-    transition-duration: 0.4s;
-    border-radius: 12px;
-  }
+
 }
 
 @media screen and (max-width: 410px) {
-  .ProfessionCardButton {
-    min-width: 320px;
+  .ProfessionsPageContainer {
+    .ProfessionsContainer {
+      .ProfessionContainer {
+        .ProfessionCardButton {
+          min-width: 320px;
+
+        }
+      }
+
+    }
   }
+
 }
