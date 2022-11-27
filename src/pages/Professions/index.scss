@@ -63,7 +63,7 @@
       padding: 16px;
       transition-duration: 0.4s;
       border-radius: 12px;
-      &ProfessionModalBottomNon{
+      &.ProfessionModalBottomNon{
         right: -600px;
         overflow: hidden;
         transition-duration: 0.4s;
@@ -158,7 +158,7 @@
         padding: 16px;
         transition-duration: 0.4s;
         border-radius: 12px;
-        &ProfessionModalBottomNon{
+        &.ProfessionModalBottomNon{
           right: -100%;
           overflow: hidden;
           transition-duration: 0.4s;
