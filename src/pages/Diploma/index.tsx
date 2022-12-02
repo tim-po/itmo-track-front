@@ -17,6 +17,7 @@ import SwapModal from "components/Modals/SwapModal";
 import ControlTypeModal from "../../components/Modals/ControlTypeModal";
 import {DiplomaDataType} from "types";
 import DisciplinesModal from "../../components/Modals/DisciplinesModal";
+import {refactorNameDataDisciplines } from "../../components/DiplomaGeneral/refactorNameDataDisciplines";
 
 type DiplomaPropType = {}
 
@@ -43,10 +44,10 @@ const Diploma = (props: DiplomaPropType) => {
     }
   }
 
+
   const closeShareModal = () => {
     setIsShareModalOpen(false)
   }
-
   useEffect(() => {
     setBg('#F1F2F8')
 
@@ -134,7 +135,7 @@ const Diploma = (props: DiplomaPropType) => {
                     onClick={() => displayModal(<ControlTypeModal controlType={controlType} />)}
                     name={controlType.name}
                     title={controlType.count}
-                    subtitle={controlType.name}
+                    subtitle={refactorNameDataDisciplines(controlType.name)}
                     isDiplomaCard
                     isControlTypeCard
                     classNames={[
