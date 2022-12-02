@@ -14,6 +14,7 @@ import Card from "components/DiplomaGeneral/Card";
 import Button from "components/Button";
 import SwapModal from "components/Modals/SwapModal";
 import {DiplomaShareDataType} from "types"
+import Like from "images/icons/Static/like";
 
 type DiplomaSharePropType = {}
 
@@ -77,7 +78,7 @@ const DiplomaShare = () => {
       </div>
       <div className="DiplomaContainerShare">
         <div className="DiplomaCardShareLeft">
-          <Description iconUrl={'/static/school.svg'} title={diplomaShareData ? diplomaShareData.educational_plan : ''}/>
+          <Description iconUrl={'/images/school.svg'} title={diplomaShareData ? diplomaShareData.educational_plan : ''}/>
           <Keywords
             keywords={keywords?.slice(0, 10)}
             keywordsCount={keywords?.length}
@@ -92,7 +93,7 @@ const DiplomaShare = () => {
           >
             <div className="row">
               <div className="likes-icon">
-                <img src={'/static/like.svg'}/>
+                <Like/>
               </div>
               <div className="col">
                 <div className="mb-2">

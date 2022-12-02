@@ -7,6 +7,7 @@ import {makeEmptyList} from "../../utils/general";
 import BgContext from "../../Context/Background";
 import * as Scroll from "react-scroll";
 import KeywordsSearch from "../KeywordsSearch";
+import Magnifier from "images/icons/magnifier";
 
 // CONSTANTS
 const randomFeedbackSelectOptions = [
@@ -84,7 +85,7 @@ const Keywords = (props: KeywordsPropType) => {
                 <div
                   className="textCenter mt-4 magnifierTextContainer"
                 >
-                  <img src="/static/magnifier.svg" width="94" height="139" alt=""/>
+                  <Magnifier width={94} height={139}/>
                   <span className="magnifier">
                   Ищи и добавляй навыки, которые хочешь получить в ИТМО
                   </span>

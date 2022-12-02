@@ -1,5 +1,6 @@
 import React, {useContext, useEffect, useState} from "react";
 import './index.scss'
+import Close from "../../images/icons/close";
 
 // CONSTANTS
 
@@ -51,7 +52,7 @@ const GenericModal = (props: GenericModalPropType) => {
         }
         <div className={`d-block TextCenter ${blockContent ? 'activ': ''}`}>
           <button className="ImgCloseBtn" onClick={onModalClose}>
-            <img src={colorCloseWhite? '/static/closeBtn.svg' : '/static/closeBtn-black.svg'}/>
+            {colorCloseWhite ?  <Close width={8.5} height={8.5} color="white" /> : <Close width={8.5} height={8.5}  />}
           </button>
           {children}
         </div>

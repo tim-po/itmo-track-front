@@ -1,0 +1,17 @@
+.illustration {
+  .stars {
+    transform-origin: center;
+    opacity: 1;
+    transform-box: fill-box;
+    animation: 1s linear infinite alternate motionAnimationStars;
+  }
+
+  @keyframes motionAnimationStars {
+    0% {
+      transform: scale(0.6);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}

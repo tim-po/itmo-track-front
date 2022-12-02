@@ -4,6 +4,9 @@ import {PresetType} from "../../types";
 import * as Scroll from "react-scroll";
 import {useNavigate, useSearchParams} from "react-router-dom";
 import Preset from "../Preset";
+import Illustration from "images/icons/illustration";
+import Chevron, {Turn} from "../../images/icons/chevron";
+import Magnifier from "../../images/icons/magnifier";
 
 // CONSTANTS
 
@@ -95,23 +98,26 @@ const SelectedPresets = (props: SelectedPresetsPropType) => {
           <button
             className="scrollBtn right"
             onClick={scrollToRight}
-          />
+          >
+            <Chevron turn={Turn.left} />
+          </button>
           <button
             className="scrollBtn left"
             style={{opacity: leftScrollPosition ? 1 : 0}}
             onClick={scrollToLeft}
-          />
-
+          >
+            <Chevron/>
+          </button>
         {selectedPresets.length === 0 && searchParams.get('view') !== 'main' &&
           <div className="blockMyPreset">
-            <img src="/static/search.svg"/>
+            <Magnifier/>
             <span>Ты не добавил ни одного набора навыков</span>
           </div>
         }
         {selectedPresets.length === 0 && searchParams.get('view') === 'main' &&
           <div className="blockMyPreset main">
             <div className="imgPresets">
-              <img src="/static/Illustration.svg"/>
+              <Illustration/>
             </div>
             <div className="prompt">
               <span>

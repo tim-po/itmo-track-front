@@ -29,7 +29,6 @@
     padding: 0;
     position: absolute;
     background-color: #ffffff;
-    background-image: url("../../static/arrowRight.svg");
     background-repeat: no-repeat;
     background-position: center;
     z-index: 9;
@@ -115,6 +114,87 @@
   }
 }
 
+.scrollBtn {
+  overflow: hidden;
+  transition: all 0.3s;
+  padding: 0;
+  position: absolute;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 9;
+  right: -15px;
+  top: calc(50% - 20px);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0px 26px 11px rgba(100, 53, 165, 0.01), 0px 15px 9px rgba(100, 53, 165, 0.03), 0px 7px 7px rgba(100, 53, 165, 0.05), 0px 0px 4px rgba(100, 53, 165, 0.06), 0px 0px 0px rgba(100, 53, 165, 0.06);
+}
+
+.scrollBtn.left {
+  left: -15px;
+  transform: scaleX(-1);
+}
+
+
+.leftSlide .presets {
+  /*min-width: 437px;*/
+  margin-bottom: 16px;
+}
+
+.leftSlide {
+  display: flex;
+  transition: all 0.3s;
+  height: 320px;
+  border-bottom: 1px solid rgba(231, 232, 238, 0);
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.leftSlide.hidden {
+  max-height: 0;
+  border-bottom: 1px solid #E7E8EE;
+}
+
+
+.leftSlide.hidden .scrollBtn.right {
+  height: 0;
+  width: 0;
+  top: calc(50%);
+  right: 0;
+}
+
+.leftSlide.hidden .scrollBtn.left {
+  height: 0;
+  width: 0;
+  top: calc(50%);
+}
+
+.leftSlide.hidden-right .scrollBtn.right {
+  height: 0;
+  width: 0;
+  top: calc(50%);
+  right: 0;
+}
+
+.leftSlide.hidden-left .scrollBtn.left {
+  height: 0;
+  width: 0;
+  top: calc(50%);
+  left: 0;
+}
+
+.prompt {
+  width: 257px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
 
 @media screen and (max-width: 879px) {
   .selectedPresetsContainer .prompt button {

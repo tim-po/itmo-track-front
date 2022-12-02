@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './index.scss';
 import { isMobile } from "react-device-detect";
-import ModalStick from "../../../static/icons/ModalStick";
+import Chevron, { Turn } from "../../../images/icons/chevron";
 
 type SwapModalPropType = {
   children: React.ReactNode | React.ReactNode[]
@@ -80,7 +80,7 @@ const SwapModal = (props: SwapModalPropType) => {
       style={{ height: `${isMobile ? `${cardHeight}px` : ``}`}}
     >
       <div className='modal-stick-wrapper'>
-        <ModalStick />
+        <Chevron turn={Turn.up} />
       </div>
       {children}
     </div>

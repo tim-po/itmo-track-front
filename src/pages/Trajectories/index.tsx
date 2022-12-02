@@ -9,7 +9,9 @@ import PercentProgress from "../../components/PercentProgress";
 import ControlTypeTile from "../../components/ControlTypeTile";
 import './index.scss'
 import {allControllTypes, BASE_URL} from "../../constants";
+import Close from "../../images/icons/close";
 import {LocalStorageInteraction, withLocalStorage} from "../../utils/general";
+import Chevron, {Turn} from "../../images/icons/chevron";
 
 // CONSTANTS
 
@@ -105,7 +107,10 @@ const Trajectories = () => {
             // @ts-ignore
             e.target.parentElement.classList.add('Hidden')
           }}
-        />
+
+        >
+          <Close width={10} height={10}/>
+        </button>
         <PercentProgress percent={0.8}/>
         <div className="mr-2"/>
         Мы собрали подходяшие для тебя образовательные программы.
@@ -131,8 +136,12 @@ const Trajectories = () => {
             </div>
             <div className="mt-3 trajectoryCardWrapper HiddenLeft" onLoad={shouldDrawScrollButton}
                  onScroll={shouldDrawScrollButton}>
-              <button className="ScrollBtn Right" onClick={scrollToRight}/>
-              <button className="ScrollBtn Left" onClick={scrollToLeft}/>
+              <button className="ScrollBtn Right" onClick={scrollToRight}>
+                <Chevron turn={Turn.right}/>
+              </button>
+              <button className="ScrollBtn Left" onClick={scrollToLeft}>
+                <Chevron turn={Turn.left}/>
+              </button>
               {trajectory.courses.map((course, index) => {
                 return (
                   <div

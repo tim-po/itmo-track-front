@@ -1,6 +1,7 @@
 import React, {useContext, useState} from "react";
 import './index.scss'
 import {CountType} from "types";
+import PromptImg from "../../../images/icons/questionСircle";
 
 type ControlTypeModalPropType = {
   controlType: (CountType & { disciplines?: CountType[] | string[] })
@@ -49,13 +50,15 @@ const ControlTypeModal = (props: ControlTypeModalPropType) => {
         <h1 className="KeywordsModalHeader">
           {getModalTitle(controlType.name)}
         </h1>
-        <button className="VectorStroke" onMouseEnter={() => setIsTooltipActive(true)} onMouseLeave={() => setIsTooltipActive(false)}>
+        <div className="VectorStroke" onMouseEnter={() => setIsTooltipActive(true)} onMouseLeave={() => setIsTooltipActive(false)}>
+        <PromptImg color={isTooltipActive ? "#8533FF" : "#B7B6BC"} />
           {isTooltipActive &&
             <div className="Prompt">
               {getTooltipMessage(controlType.name)}
             </div>
           }
-        </button>
+        {/*</PromptImg>*/}
+        </div>
       </div>
       <div className="ExamModalContainer">
         <div className="KeywordsModalContent">

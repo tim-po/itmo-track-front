@@ -114,28 +114,12 @@
   line-height: 16px;
 }
 
-.bachelor {
-  position: relative;
-  padding-left: 24px;
-}
 
-.bachelor::before {
-  position: absolute;
-  left: 0px;
-  top: 1px;
-  content: url("../../static/star.svg");
-  width: 16px;
-  height: 16px;
-}
 
 .mobi-opacity-block {
   display: none;
 }
 
-.secondary-button-diploma-with-icon::after {
-  content: url("../../static/share.svg");
-  margin-left: 10px;
-}
 
 // Made by Danil --start--
 

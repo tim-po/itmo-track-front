@@ -3,6 +3,11 @@ import './index.scss'
 import {PresetType} from "../../types";
 import ModalsContext from "../../Context/Modal";
 import PresetIcon from "../PresetIcon";
+import Pluse from "images/icons/plus";
+
+// CONSTANTS
+
+// DEFAULT FUNCTIONS
 import KeywordsModal from "../Modals/KeywordsModal";
 import Keyword from "../Keyword";
 
@@ -51,7 +56,9 @@ const Preset = (props: PresetPropType) => {
             className="actionButton"
             onClick={clickSelf}
           >
-            <img src="/static/pluse.svg" style={displayAdd ? {} : {transform: 'rotate(45deg)'}}/>
+            <div style={displayAdd ? {} : {transform: 'rotate(45deg)'}}>
+            <Pluse/>
+            </div>
           </button>
         }
       </div>

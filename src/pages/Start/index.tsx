@@ -3,6 +3,14 @@ import * as Scroll from 'react-scroll';
 import {Link} from "react-router-dom";
 import './index.scss'
 import BgContext from "../../Context/Background";
+import ImgMainLetterB from "images/icons/Static/imgMainLetterB";
+import ImgMainLetterA from "../../images/icons/Static/imgMainLetterA";
+import ImgMainLetterC from "images/icons/Static/imgMainLetterC";
+import Stars from "../../images/icons/Static/stars";
+import Wave from "images/icons/Static/wave";
+import ManOnHomepage from "../../images/icons/manOnHomepage";
+import Close from "../../images/icons/close";
+import Chevron from "../../images/icons/chevron";
 
 // CONSTANTS
 
@@ -36,7 +44,7 @@ const Start = () => {
                 Переведем твои цели на язык дисциплин
               </h1>
               <div className="d-flex flex-column justify-content-center ImgMain StarsMobil">
-                <img src="/static/landing-background.svg" alt=""/>
+                <ManOnHomepage/>
               </div>
               <div className="FlexButton">
                 <Link to="/professions" className="LinkProfession MainButton mr-4">
@@ -46,7 +54,7 @@ const Start = () => {
               </div>
             </div>
             <div className="d-flex flex-column justify-content-center ImgMain Stars">
-              <img src="/static/landing-background.svg" alt=""/>
+              <ManOnHomepage/>
             </div>
           </div>
           <span className="HeaderSubtext">
@@ -56,7 +64,7 @@ const Start = () => {
         <section className="info LandingCardFlex" id="scrollToAbout">
           <div className="HelloCard mr-3">
             <div className="TextCenter">
-              <img src="/static/Wave.svg" alt="" className="hand-icon"/>
+              <div className="hand-icon"><Wave/></div>
             </div>
             <p className="HelloText">
               Мы понимаем, как сложно бывает выбрать образовательную программу.
@@ -69,21 +77,21 @@ const Start = () => {
               сформировать перечень курсов и дисциплин, ты можешь:
             </div>
             <div className="point-wrapper">
-              <img src="/static/A.svg" alt="" className="letter-icon"/>
+              <div className='letter-icon'><ImgMainLetterA/></div>
                 <p className="InfoText">
                   Выбрать уже готовый набор ключевых слов
                   (список навыков и умений)
                 </p>
             </div>
             <div className="point-wrapper">
-              <img src="/static/B.svg" alt="" className="letter-icon"/>
+              <div className="letter-icon"><ImgMainLetterB/></div>
                 <p className="InfoText">
                   Изменить набор: убрать лишние или добавить важные
                   навыки и знания
                 </p>
             </div>
             <div className="point-wrapper">
-              <img src="/static/C.svg" alt="" className="letter-icon"/>
+              <div className="letter-icon"><ImgMainLetterC/></div>
                 <p className="InfoText">
                   Пройти тест на определение близких тебе профессий и записаться на консультацию
                 </p>
@@ -91,13 +99,13 @@ const Start = () => {
           </div>
         </section>
         <div className="FinalCard mt-3 d-flex">
-          <img src="/static/stars.svg" alt="" className="Stars"/>
+          <div className='Stars'><Stars/></div>
             <div className="mobilStar">
               <div className="FinalCardTitle">
                 На основе твоего выбора мы подберем учебную программу
               </div>
               <div className="FlexEducationalTrajectory">
-                <img src="/static/stars.svg" alt="" className="StarsMobil"/>
+                <div className="StarsMobil"><Stars/></div>
               </div>
             </div>
         </div>

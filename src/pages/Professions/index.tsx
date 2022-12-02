@@ -9,6 +9,7 @@ import ProfessionCard from "components/ProfessionCard";
 import './index.scss'
 import BgContext from "../../Context/Background";
 import {makeEmptyList} from "../../utils/general";
+import Close from "../../images/icons/close";
 
 // CONSTANTS
 
@@ -95,7 +96,7 @@ const Professions = () => {
         <div
           className={`ProfessionModalBottom ${isFeedbackPopupVisible ? 'profession__modal__bottomOn' : 'ProfessionModalBottomNon'}`}>
           <button className="CloseFeedback" onClick={() => setIsFeedbackPopupVisible(false)}>
-            <img src="/static/feedbackClose.svg"/>
+            <Close width={10} height={10}/>
           </button>
           <span className="Text">Сервис работает в тестовом режиме, список профессий будет дополняться.
             <button

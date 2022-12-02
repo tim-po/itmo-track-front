@@ -1,14 +1,4 @@
-.close {
-  right: 18px;
-  top: 18px;
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  background: url("../../../static/closeBtn-black.svg") no-repeat center;
-  opacity: 1;
-  cursor: pointer;
-  z-index: 1600;
-}
+
 
 .shareModal-cover {
   width: 100%;
@@ -29,7 +19,7 @@
 
 .shareModalHeaderContainer {
   height: 158px;
-  /*background: url("../../static/PicShareDeck.svg") no-repeat center;*/
+  /*background: url("../../images/preview.svg") no-repeat center;*/
   -moz-background-size: 100%;
   -webkit-background-size: 100%;
   -o-background-size: 100%;
@@ -151,7 +141,7 @@
 
 @media screen and (max-width: 1000px) {
   .shareModalHeaderContainer {
-    /*background: url("../../static/shareBg.svg") no-repeat center;*/
+    /*background: url("../../images/shareBg.svg") no-repeat center;*/
   }
   .share-button {
     min-width: 100%;

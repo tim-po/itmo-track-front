@@ -12,6 +12,10 @@ import {useProfession} from "../../Models/useProfession";
 import Keywords from "../../components/Keywords";
 import SkillSets from "../../components/SkillSets";
 import LoadingScreen from "../../components/LoadingScreen";
+import MagicWand from "../../images/icons/MagicWand";
+import FingerLike from "images/icons/Static/fingerLike";
+import ProfessionLamsIcon from "images/icons/Static/lightBulbs";
+
 import KeywordsModal from "../../components/Modals/KeywordsModal";
 import ModalsContext from "../../Context/Modal";
 // CONSTANTS
@@ -186,11 +190,12 @@ const ProfessionDetails = () => {
                   </div>
                 </div>
                 {presets.selected.length === 0 &&
-                  <img src="/static/professionLamsIcon.svg" className="lamp-icon"
-                       alt="icon"/>
+                  <div className="lamp-icon">
+                    <ProfessionLamsIcon/>
+                  </div>
                 }
                 {presets.selected.length > 0 &&
-                  <img src="/static/finger-like.svg" className="like" alt="icon"/>
+                  <div className="like"><FingerLike/></div>
                 }
               </div>
               {/*<div*/}
@@ -198,7 +203,7 @@ const ProfessionDetails = () => {
               {/*  v-if="(keywords && keywords.length > 0) ? (keywords.length <= requiredWordsLimit)  false"*/}
               {/*>*/}
               {/*    <div className="d-flex">*/}
-              {/*        <img src="/static/warning.svg" alt="" className="mr-2"/>*/}
+              {/*        <img src="/images/exclamationMarkInOutline.svg" alt="" className="mr-2"/>*/}
               {/*        Ты можешь удалить не более 30% набора ключевых слов своей профессии*/}
               {/*    </div>*/}
               {/*</div>*/}
@@ -217,7 +222,7 @@ const ProfessionDetails = () => {
                 </div>
                 {presets.selected.length > 0 &&
                   <div onClick={editSkillSets} className="edit-button">
-                    <img src="/static/MagicWand.svg" className="edit-button-icon"/>
+                    <div className="edit-button-icon"> <MagicWand width={14} height={14}/></div>
                     <span className="edit-button-text">Редактировать</span>
                   </div>
                 }
@@ -236,7 +241,7 @@ const ProfessionDetails = () => {
                   }
                 </div>
                 <div onClick={editKeywords} className="edit-button">
-                  <img src="/static/MagicWand.svg" className="edit-button-icon"/>
+                  <div className="edit-button-icon"> <MagicWand width={14} height={14}/></div>
                   <span className="edit-button-text">Редактировать</span>
                 </div>
               </div>

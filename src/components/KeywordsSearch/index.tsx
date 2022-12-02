@@ -8,6 +8,7 @@ import Spinner from "../Spinner";
 import {BASE_URL} from "../../constants";
 import useOnClickOutside from "../../utils/useClickOutside";
 import keywords from "../Keywords";
+import SearchInput from "../../images/icons/magnifyingGlass";
 
 // CONSTANTS
 
@@ -112,7 +113,9 @@ const KeywordsSearch = (props: KeywordsSearchPropType) => {
             setSearchQuery(e.target.value)
           }}
         />
-        <img className="searchInput" src="/static/searchInput.svg"/>
+        <div className="searchInput">
+          <SearchInput/>
+        </div>
       </div>
       <div
         className={`addKeywordsSearch ${isSearching && searchQuery != '' ? 'extended' : ''}`}

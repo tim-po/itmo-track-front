@@ -148,7 +148,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url(../../static/deleteBtn.svg) center no-repeat;
 }
 
 .ScrollBtn{
@@ -156,8 +155,8 @@
   padding: 0;
   position: absolute;
   background-color: #ffffff;
-  background-image: url("../../static/arrowRight.svg");
   background-repeat: no-repeat;
+  overflow: hidden;
   background-position: center;
   z-index: 1000;
   right: 8px;
@@ -172,7 +171,6 @@
 .ScrollBtn.Left{
   right: unset;
   left: 8px;
-  transform: rotate(180deg);
 }
 
 .trajectoryCardWrapper.Hidden .ScrollBtn.Right{

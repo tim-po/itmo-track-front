@@ -3,8 +3,8 @@ import './index.scss'
 import {useNavigate} from "react-router-dom";
 import BackButtonContext from "../../Context/BackButton";
 import HeaderContext from "../../Context/Header";
+import Logo from "images/icons/Static/logo";
 // @ts-ignore
-import logo from "../../static/logo.svg";
 
 // CONSTANTS
 
@@ -63,7 +63,7 @@ const Header = (props: HeaderPropType) => {
         <div
           className={`Logo ${isHeaderPreAnimated ? 'preAnimated' : ''}`}
         >
-          <img className="LogoImg" src={logo} alt="logo" onClick={() => navigate('/professions')} />
+          <div className="LogoImg" onClick={() => navigate('/professions')}><Logo/></div>
           <h2 className="LogoText">ITMO.TRACK</h2>
         </div>
       </div>

@@ -87,6 +87,10 @@
       font-size: 12px;
       z-index: 12;
     }
+    .keywordsContainer{
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 }
 

@@ -1,0 +1,78 @@
+.startHumanIcon {
+  .heart {
+    transform: scale(1);
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .inputText {
+    visibility: visible;
+  }
+
+  .gear {
+    transform: rotate(0deg);
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+
+  @keyframes motionAnimationInputText {
+    from {
+      opacity: 0;
+    }
+    25%{
+      opacity: 1;
+    }
+    50%{
+      opacity: 1;
+    }
+    75%{
+      opacity: 0;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes motionAnimationHeart {
+    from {
+      transform: scale(1)
+    }
+    40%{
+      transform: scale(1.2)
+    }
+    60%{
+      transform: scale(1.2)
+    }
+    to {
+      transform: scale(1)
+    }
+  }
+
+  @keyframes motionAnimationGear {
+    0% {
+      transform: rotate(0deg);
+    }
+    25%{
+      transform: rotate(50deg);
+    }
+    60%{
+      transform: rotate(-70deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  &:hover {
+    .heart{
+      animation: motionAnimationHeart 0.4s infinite ease-in-out;
+    }
+    .inputText{
+      animation: motionAnimationInputText 0.8s infinite;
+    }
+    .gear{
+      animation: motionAnimationGear 2s infinite ease-in-out;
+    }
+  }
+}
+

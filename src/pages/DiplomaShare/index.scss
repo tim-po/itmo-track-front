@@ -67,7 +67,7 @@
 
 .DiplomaDisciplinesCard .LineImg {
   position: absolute;
-  background: url("../../static/diploma-line-img.svg") no-repeat;
+  background: url("../../images/icons/Static/diploma-line-img.svg") no-repeat;
   -moz-background-size: auto 100%;
   -webkit-background-size: 100%;
   -o-background-size: 100%;
@@ -136,19 +136,6 @@
   color: #1F1F22;
 }
 
-.bachelor {
-  position: relative;
-  padding-left: 24px;
-}
-
-.bachelor::before {
-  position: absolute;
-  left: 0;
-  top: 3px;
-  content: url("../../static/school.svg");
-  width: 16px;
-  height: 16px;
-}
 
 .diplomaDisciplinesCount {
   text-align: center;
@@ -349,7 +336,7 @@ a.MainButton:hover {
     top: 0;
     left: -24px;
     width: 20px;
-    background: url("../../static/diplomaLineImgVertical.svg") no-repeat;
+    background: url("../../images/icons/Static/diplomaLineImgVertical.svg") no-repeat;
     background-size: cover;
     -moz-background-size: auto 100%;
     -o-background-size: 100%;

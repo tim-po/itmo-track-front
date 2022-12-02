@@ -17,6 +17,7 @@ import SwapModal from "components/Modals/SwapModal";
 import ControlTypeModal from "../../components/Modals/ControlTypeModal";
 import {DiplomaDataType} from "types";
 import DisciplinesModal from "../../components/Modals/DisciplinesModal";
+import Share from "../../images/icons/share";
 
 type DiplomaPropType = {}
 
@@ -65,7 +66,7 @@ const Diploma = (props: DiplomaPropType) => {
       <div className="diploma-container">
         <div className="tiles-wrapper">
           <div className="left-tiles">
-            <Description iconUrl={'/static/star.svg'} title={'Высшее образование'}/>
+            <Description iconUrl={'/images/star.svg'} title={'Высшее образование'}/>
             <Keywords
               keywords={keywords}
               keywordsCount={keywords?.length}
@@ -100,11 +101,8 @@ const Diploma = (props: DiplomaPropType) => {
                 >
                   <div className="share-button-content">
                     <span className={'button-text'}>Поделиться</span>
-                    <img
-                      src="/static/share.svg"
-                      alt="share"
-                      className={'share-icon'}
-                    />
+                    <div className={'share-icon'}> <Share/></div>
+
                   </div>
                 </Button>
               </div>

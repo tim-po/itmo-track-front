@@ -1,6 +1,7 @@
 import React, {useContext, useState} from "react";
 import './index.scss'
 import {KeywordType} from "../../types";
+import Close from "../../images/icons/close";
 
 // CONSTANTS
 
@@ -47,10 +48,12 @@ const Keyword = (props: KeywordPropType) => {
     >
          {keyword.text}
       {deletable &&
-        <button
-          className="border-0 pr-0 py-0 deletedButton"
-          onClick={deleteSelf}
-        />
+        <button>
+          <div className="deletedButton" onClick={deleteSelf}>
+            <Close width={8.5} height={8.5}/>
+          </div>
+        </button>
+        // />
       }
   </span>
   )

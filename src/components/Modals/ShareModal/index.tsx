@@ -3,6 +3,7 @@ import './index.scss';
 import copy from "copy-to-clipboard";
 import {useSearchParams} from "react-router-dom";
 import Button from "components/Button";
+import PicShareDeck from "../../../images/icons/Static/picShareDeck";
 
 type ShareModalPropType = {}
 
@@ -33,7 +34,9 @@ const ShareModal = (props: ShareModalPropType) => {
   return (
     <div className="shareModalContainer">
       <div className="shareModalHeaderContainer">
-        <img src="../../../static/PicShareDeck.svg" className="shareModal-cover"/>
+        <div>
+          <PicShareDeck/>
+        </div>
       </div>
       <div className="shareContent">
         <div className="shareContentHeader">Поделиться</div>
