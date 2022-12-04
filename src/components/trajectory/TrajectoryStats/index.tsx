@@ -7,6 +7,7 @@ import { allControllTypes, colors } from "../../../constants";
 import ControlTypeTile from "../../ControlTypeTile";
 import ModalContext from "../../../Context/Modal";
 import ControlTypeModal from "../../Modals/ControlTypeModal";
+import QuestionCircle from "../../../images/icons/questionCircle";
 
 
 // CONSTANTS
@@ -220,6 +221,7 @@ const TrajectoryStats = (props: TrajectoryStatsPropType) => {
       <h6 className="disciplines">Дисциплины</h6>
         <button className="questionСircle" onMouseEnter={() => setIsTooltipActive(true)}
                 onMouseLeave={() => setIsTooltipActive(false)}>
+          <QuestionCircle color={isTooltipActive ? "#8533FF" : "#B7B6BC"} />
           {isTooltipActive &&
             <div className="Prompt">
               Учебные предметы

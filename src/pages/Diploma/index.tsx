@@ -66,7 +66,7 @@ const Diploma = (props: DiplomaPropType) => {
       <div className="diploma-container">
         <div className="tiles-wrapper">
           <div className="left-tiles">
-            <Description iconUrl={'/images/star.svg'} title={'Высшее образование'}/>
+            <Description iconUrl={'/static/star.svg'} title={'Высшее образование'}/>
             <Keywords
               keywords={keywords}
               keywordsCount={keywords?.length}

@@ -78,7 +78,7 @@ const DiplomaShare = () => {
       </div>
       <div className="DiplomaContainerShare">
         <div className="DiplomaCardShareLeft">
-          <Description iconUrl={'/images/school.svg'} title={diplomaShareData ? diplomaShareData.educational_plan : ''}/>
+          <Description iconUrl={'/static/school.svg'} title={diplomaShareData ? diplomaShareData.educational_plan : ''}/>
           <Keywords
             keywords={keywords?.slice(0, 10)}
             keywordsCount={keywords?.length}

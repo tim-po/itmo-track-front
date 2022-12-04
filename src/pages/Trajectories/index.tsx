@@ -109,7 +109,7 @@ const Trajectories = () => {
           }}
 
         >
-          <Close width={10} height={10}/>
+          <Close width={12} height={12}/>
         </button>
         <PercentProgress percent={0.8}/>
         <div className="mr-2"/>

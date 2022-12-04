@@ -99,14 +99,14 @@ const SelectedPresets = (props: SelectedPresetsPropType) => {
             className="scrollBtn right"
             onClick={scrollToRight}
           >
-            <Chevron turn={Turn.left} />
+            <Chevron turn={Turn.right} />
           </button>
           <button
             className="scrollBtn left"
             style={{opacity: leftScrollPosition ? 1 : 0}}
             onClick={scrollToLeft}
           >
-            <Chevron/>
+            <Chevron turn={Turn.left}/>
           </button>
         {selectedPresets.length === 0 && searchParams.get('view') !== 'main' &&
           <div className="blockMyPreset">
