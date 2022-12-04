@@ -4,6 +4,7 @@ import {ClassType, CourseType, DisciplineType} from "../../../types";
 import {colors} from "../../../constants";
 import TrajectoryDisciplineModal from "../../Modals/TrajectoryDisciplineModal";
 import ModalContext from "../../../Context/Modal";
+import { isMobile } from "react-device-detect";
 
 // CONSTANTS
 
@@ -18,7 +19,7 @@ type CardPropType = {
 const CardDefaultProps = {}
 
 const Card = (props: CardPropType) => {
-  
+
   const {displayModal} = useContext(ModalContext)
 
   const {selectSelf, selectedSphere, sphere} = props;
@@ -65,6 +66,7 @@ const Card = (props: CardPropType) => {
           />
         </button>
       </div>
+      <div className="bodyCard">
       <div className="Semester">
         <p className="TrajectorySmallHeader">Осень</p>
         <p className="TrajectorySmallHeader">Весна</p>
@@ -95,8 +97,7 @@ const Card = (props: CardPropType) => {
                     >
                       <div
                         className="DisciplineCardWrapper"
-                        onClick={() => displayModal(<TrajectoryDisciplineModal id={discipline.id} />)}
-                        // onClick="(index === blockDisclosure || width > 1000)? getModals(discipline.id):''"
+                        onClick={(index === activeSemesterIndex || !(isMobile)) ? () => displayModal(<TrajectoryDisciplineModal id={discipline.id} />):  () =>{}}
                       >
                         <div className="DisciplineCard">
                           <div className="flex-row flex-block justify-content-between">
@@ -137,6 +138,7 @@ const Card = (props: CardPropType) => {
             </div>
           )
         })}
+      </div>
       </div>
     </div>
   )

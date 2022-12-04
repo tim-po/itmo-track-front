@@ -1,230 +1,198 @@
-.StileText {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-}
-
-.DisciplineModalBackground {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 3000;
-  background: rgba(45, 43, 68, 0.6);
-}
-
-.MobileBlock {
-  flex-grow: 2;
-}
-
-.MainTrajectoryFlex {
-  gap: 30px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.CoursesRow {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  z-index: 2;
-  width: 100%;
-  max-width: 470px;
-}
-
-.CoursesRowFirstFlex {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  color: black !important;
-}
-
-
 .TrajectoryPage {
   max-width: 1500px;
   margin: 0 auto;
   margin-top: 24px;
-}
 
-.CourseButton {
-  transition: all 0.2s;
-  background: transparent;
-  border: 0;
-  font-weight: 400;
-  font-size: 14px;
-  width: 50px;
-  height: 42px;
-  display: flex;
-  flex-direction: row;
-  padding: 10px 0px;
-  margin-right: 15px;
-  margin-left: 15px;
-  overflow: hidden;
-}
+  .titleNameDiscipline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
-.CourseButtonDiploma {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  background: transparent;
-  border: 0;
-  padding: 10px 12px;
-  width: 80px;
-  height: 42px;
-  flex-shrink: 0;
-  color: var(--color-5-dark);
-}
+    .StileText {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+    }
 
-.Course {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  width: 50px;
-  color: #1F1F22;
-}
+    .CoursesRow {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      z-index: 2;
+      width: 100%;
+      max-width: 470px;
 
-.CourseButtonActive {
-  width: 50px;
-}
+      .CoursesRowFirstFlex {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        color: black !important;
 
-.HeaderDivider {
-  transition: all 0.3s;
-  padding: 0;
-  margin: 0;
-  height: 2px;
-  border: 0;
-}
+        .CourseButtonActive {
+          width: 50px;
+        }
 
-.mobileBottomWrapper {
-  display: none;
-}
+        .CourseButton {
+          transition: all 0.2s;
+          background: transparent;
+          border: 0;
+          font-weight: 400;
+          font-size: 14px;
+          width: 50px;
+          height: 42px;
+          display: flex;
+          flex-direction: row;
+          padding: 10px 0px;
+          margin-right: 15px;
+          margin-left: 15px;
+          overflow: hidden;
 
-.TrajectorySmallHeader {
-  color: #6e6d79;
-  font-weight: 500;
-  font-size: 12px;
-  margin: 0;
-  margin-bottom: 16px;
-}
-.titleNameDiscipline{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-@media screen and (max-width: 1000px) {
-  .semesterSeason {
-    display: none;
-  }
-  .TrajectoryPage {
-    margin-bottom: 100px;
-  }
-  .StileText {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
-    color: #1F1F22;
-  }
-  .BottomButtonsCurs .btn-secondary:focus {
-    background: #AE78FE;
-    color: white;
-  }
-  .BottomButtonsCurs .btn-secondary:hover {
-    background: #AE78FE;
-    color: white;
-  }
-  .CoursesRow {
-    margin-top: 20px;
+
+          .Course {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            width: 50px;
+            color: #1F1F22;
+          }
+        }
+      }
+
+      .CourseButtonDiploma {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        background: transparent;
+        border: 0;
+        padding: 10px 12px;
+        width: 80px;
+        height: 42px;
+        flex-shrink: 0;
+        color: var(--color-5-dark);
+      }
+
+    }
   }
 
   .HeaderDivider {
-    margin-bottom: 24px
+    transition: all 0.3s;
+    padding: 0;
+    margin: 0;
+    height: 2px;
+    border: 0;
   }
 
-  .Semester {
-    width: 100%;
-    color: white;
+  .MainTrajectoryFlex {
+    gap: 30px;
     display: flex;
-    padding: 0px 16px;
     justify-content: space-between;
   }
 
-  .Course {
-    min-width: 50px;
-    //overflow: hidden;
-  }
-
-  .CourseButton {
-    width: 14px;
-  }
-
-  .CourseButtonActive {
-    width: 50px;
-  }
-  #BvModalExample .MarginMobil {
-    margin-bottom: 100px !important;
-  }
-
-  .SemesterCol.On {
+  .MobileBlock {
     flex-grow: 2;
+
+    .mobileBottomWrapper {
+      display: none;
+    }
+
+    .TrajectorySmallHeader {
+      color: #6e6d79;
+      font-weight: 500;
+      font-size: 12px;
+      margin: 0;
+      margin-bottom: 16px;
+    }
   }
-  .SemesterCol.Off {
-    flex-shrink: 0;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .TrajectoryPage {
+    margin-bottom: 100px;
+
+    .titleNameDiscipline {
+      .StileText {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        color: #1F1F22;
+      }
+
+      .CoursesRow {
+        margin-top: 20px;
+
+        .CoursesRowFirstFlex {
+          .CourseButton {
+            width: 14px;
+            &.CourseButtonActive{
+              width: inherit;
+            }
+            .Course {
+              min-width: 50px;
+            }
+          }
+        }
+
+      }
+    }
+
+    .HeaderDivider {
+      margin-bottom: 24px
+    }
+
+    .MobileBlock {
+      flex: inherit;
+      max-width: inherit !important;
+      width: 100%;
+
+      .mobileBottomWrapper {
+        transition-duration: 2s;
+        max-height: 400px;
+        z-index: 20;
+        display: block;
+        padding: 0 16px;
+        position: fixed;
+        bottom: 0;
+        background: white;
+        width: 100%;
+        left: 0;
+
+        .BottomButtonsCurs {
+          padding-top: 16px;
+          padding-bottom: 31px;
+
+          .buttonCourse {
+            font-weight: 700;
+            font-size: 14px;
+            width: 100%;
+            border: 1px solid #8533FF;
+            border-radius: 8px;
+            height: 40px;
+            background: inherit;
+            color: #8533FF;
+          }
+        }
+      }
+
+      .semesterSeason {
+        display: none;
+      }
+    }
   }
 
-  .BottomButtonsCurs {
-    padding-top: 16px;
-    padding-bottom: 31px;
-  }
-
-  .mobileBottomWrapper {
-    transition-duration: 2s;
-    max-height: 400px;
-    z-index: 20;
-    display: block;
-    padding: 0 16px;
-    position: fixed;
-    bottom: 0;
-    background: white;
-    width: 100%;
-    left: 0;
-  }
-  .buttonCourse {
-    font-weight: 700;
-    font-size: 14px;
-    width: 100%;
-    border: 1px solid #8533FF;
-    border-radius: 8px;
-    height: 40px;
-    background: inherit;
-    color: #8533FF;
-  }
   .Mobile {
     display: none !important;
   }
-  .MobileBloc.col-8 {
-    max-width: inherit;
-  }
-  .MobileBlock {
-    flex: inherit;
-    max-width: inherit !important;
-    width: 100%;
-  }
 
-  .ModalOpen .mobileBottomWrapper {
-    display: none !important;
-  }
 }

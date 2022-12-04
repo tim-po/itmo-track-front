@@ -1,5 +1,6 @@
 
 .StatsContainer{
+  min-width: 444px;
   border-radius: 16px;
   background: white;
   padding: 16px;
@@ -101,7 +102,42 @@
 .TrajectoryCardBorder {
   border: 1px solid var(--gray-100);
 }
+.descriptionTypeDisciplines{
+  display: flex;
+  margin-top: 32px;
 
+  .questionСircle {
+    position: relative;
+    border: none;
+    margin-left: 8px;
+    background: url("../../../static/VectorStroke.svg") no-repeat;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    transition: all .3s;
+    outline: none;
+
+    &:hover {
+      transition: all .3s;
+      background: url("../../../static/VectorStrokeHover.svg") no-repeat;
+    }
+    .Prompt{
+      color: black;
+      top: 30px;
+      z-index: 1000;
+      left: -21px;
+      width: 196px;
+      text-align: left;
+      /* min-height: 92px; */
+      position: absolute;
+      filter: drop-shadow(-1px 0px 20px rgba(100, 53, 165, 0.06)) drop-shadow(1px 0px 20px rgba(100, 53, 165, 0.06)) drop-shadow(0px 26px 11px rgba(100, 53, 165, 0.01)) drop-shadow(0px 0px 4px rgba(100, 53, 165, 0.06)) drop-shadow(0px 0px 0px rgba(100, 53, 165, 0.06));
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 16px;
+    }
+  }
+
+}
 .TrajectoryCard {
   border: 1px solid var(--gray-100);
   border-radius: 12px;
@@ -112,6 +148,9 @@
 
 
 @media screen and (max-width: 1000px) {
+  .StatsContainer{
+    min-width: inherit;
+  }
   .DisciplinesNecessityFlex{
     font-family: 'Inter';
     font-style: normal;

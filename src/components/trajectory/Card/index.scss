@@ -1,396 +1,413 @@
-.ClassOpenButton{
-  background: none;
-  border: inherit;
-}
-.SemesterCol {
-  position: relative;
-  padding-top: 56px;
-  padding-bottom: 28px;
-  padding-left: 0;
-  padding-right: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: flex-start;
-  flex-grow: 2;
-  max-width: 50%;
-}
-.DisciplineArrowPointer{
-  position: absolute;
-}
-.discipline-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  height: 2px;
-  left: 0;
-  background: white;
-  flex-shrink: 10;
-}
-.DisciplineCardType.optional {
-  color: var(--color-3-dark);
-}
-.DisciplineCardType.optional::before {
-  background: var(--color-3-dark);
-}
-.DisciplineCardType::before {
-  position: absolute;
-  left: 0px;
-  content: "";
-  width: 2px;
-  height: 2px;
-  border-radius: 1px;
-  background: var(--color-10-dark);
-  font-size: 4px;
-}
-.discipline-card-name{
-  min-height: 30px;
-  word-wrap: break-word;
-  line-height: 20px;
-  color: black;
-  z-index: 1;
-  padding-left: 12px;
-  font-size: 14px;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-}
-.discipline-card-name.optional::before{
-  background: var(--color-3-dark);
-}
-.discipline-card-name.optional {
-  padding-left: 12px;
-  font-size: 14px;
-}
-.discipline-card-name::before {
-  position: absolute;
-  left: 0px;
-  content: "";
-  width: 2px;
-  height: 100%;
-  border-radius: 1px;
-  background: var(--color-10-dark);
-  font-size: 4px;
-}
-.DisciplineCardType {
-  color: var(--color-10-dark);
-  font-size: 11px;
-  font-weight: 600;
-  position: relative;
-  padding-left: 4px;
-  display: flex;
-  align-items: center;
-}
-.discipline-arrow{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-  width: 100%;
-  height: 2px;
-  left: 0;
-  background: white;
-  flex-shrink: 10;
-}
-.DisciplineArrowPointer{
-  position: absolute;
-}
-.DisciplineCard {
-  background: white;
-  border-radius: 8px;
-  padding: 12px;
-  max-width: 280px;
-  width: max-content;
-  font-weight: 500;
-  font-size: 14px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-.DisciplineCardWrapper{
-  transition: all 0.3s;
-  max-width: 280px;
-  flex-shrink: 0;
-  overflow: hidden;
-  border-radius: 8px;
-}
-.ModalCardButton {
-  outline: none !important;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 12px;
-}
-.SemestersRow{
-  margin-right: 40px;
-  margin-left: 14px;
-  height: 100%;
-  width: calc(100% - 80px);
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-}
-.TrajectorySmallHeader {
-  color: #6E6D79;
-  font-weight: 500;
-  font-size: 12px;
-  margin: 0;
-  margin-bottom: 16px;
-}
-.BottomDisclosure{
-  background: inherit;
-  border: inherit;
-  width: 100%;
-  text-align: left;
-  padding-left: inherit;
-  padding-right: inherit;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-}
-.mobileBottomWrapper, .Semester {
-  display: none;
-}
-
-.SemesterSeparator{
-  position: absolute;
-  height: 100%;
-  width: 1px;
-  top: 0;
-  left: 12px;
-  background: rgba(255, 255, 255, 0.2);
-  z-index: -1;
-}
-.ClassHeader {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: white;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px;
-  padding-left: 40px;
-}
-.Arrow{
-  display: none;
-}
-.ClassHeader::first-letter {
-  text-transform: capitalize;
-}
 .ClassCard {
   z-index: inherit;
   border-radius: 16px;
   margin-bottom: 20px;
   position: relative;
-}
-.ChangeType{
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
-  color: #6E6D79;
-}
-.SemesterCol{
-  position: relative;
-  padding-top: 56px;
-  padding-bottom: 28px;
-  padding-left: 0;
-  padding-right: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: flex-start;
-}
-.DisciplineCardType span{
-  padding-right: 10px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 12px;
-}
-@media screen and (min-width: 1000px) and (max-width: 1200px){
-  .DisciplineCard{
-    max-width: 190px;
-    min-width: 190px;
-  }
-}
-@media screen and (max-width: 1000px) {
 
-  .ClassHeader{
-    position: relative;
-    top: unset;
-    left: unset;
-    padding-left: 16px;
-  }
-  .first_semesters_disciplines{
-    width: calc(100% - 200px);
-  }
-  .second_semesters_disciplines{
-    width: max-content;
-  }
-  .second_semesters_disciplines .BottomDisclosure{
-    display: flex;
-    align-content: flex-start;
-    align-items: flex-start;
-  }
   .ClassHeader {
-    position: relative;
-  }
-  .DisciplineCard{
-    max-width: 200px;
-    min-width: 190px;
-  }
-  .BottomDisclosure .ModalCardButton{
-    margin-bottom: 12px;
-  }
-  .SemesterSeparator{
-    display: none;
-  }
-  .SemesterCol{
-    transition: all 0.3s;
-    padding-top: 4px;
-    padding-bottom: 20px;
-  }
-  .SemesterCol{
-    flex-grow: unset;
-    max-width: unset;
-  }
-  .dropNone .SemesterCol{
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  .SemesterCol.On{
-    flex-grow: 2;
-  }
-  .SemesterCol.Off{
-    flex-shrink: 0;
-  }
-  .SemestersRow{
-    margin-right: 16px;
-    width: auto;
-  }
-  .TrajectorySmallHeader{
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-  }
-
-  .Semester{
-    overflow: hidden;
-    transition: all 0.2s;
-    max-height: 30px;
-  }
-  .dropNone .Semester{
-    max-height: 0;
-  }
-  .Arrow{
-    transition: all 0.2s;
-    display: inherit;
-    transform: rotate(0deg);
-  }
-  .Arrow.Open{
-    transform: rotate(180deg);
-  }
-  .ClassCard{
-    margin-bottom: 16px;
-    border-radius: 12px;
-    position: relative;
-  }
-  .ClassHeaderText{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 22px;
-    color: #FFFFFF;
-  }
-  .BottomDisclosure{
-    transition: all 0.2s;
-  }
-  .dropNone .BottomDisclosure{
-    padding-bottom: 0;
-    padding-top: 0;
-  }
-
-  .BottomDisclosure .ModalCardButton{
-    margin-bottom: 12px;
-  }
-  .BottomDisclosure .Off{
-    overflow: scroll;
-  }.BottomDisclosure.Off .ChangeType{
-     opacity: 0;
-   }
-  .BottomDisclosure.Off .ModalCardButton .DisciplineCard{
-    margin-bottom: inherit;
-    border-radius: inherit;
-  }
-
-  .BottomDisclosure.Off .ModalCardButton .DisciplineCardWrapper{
-    max-width: 26px;
-  }
-
-  .BottomDisclosure.On .ModalCardButton .DisciplineCardWrapper .DisciplineCardType span{
-    transition: all 0.2s;
-    transform: translateX(0px);
-  }
-  .BottomDisclosure.Off .ModalCardButton .DisciplineCardWrapper .DisciplineCardType span{
-    transition: all 0.2s;
-    transform: translateX(10px);
-  }
-
-  .BottomDisclosure.On .ModalCardButton .DisciplineCardWrapper .discipline-card-name{
-    transition: all 0.2s;
-  }
-  .BottomDisclosure.Off .ModalCardButton .DisciplineCardWrapper .discipline-card-name{
-    transition: all 0.2s;
-    padding-left: 20px;
-  }
-  .ModalCardButton{
-    overflow: hidden;
-    transition: all 0.3s;
-    max-height: 200px;
-  }
-  .Semester{
-    width: 100%;
+    font-size: 14px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
     color: white;
-    display: flex;
-    padding: 0px 16px;
-    justify-content: space-between;
-  }
-  .dropNone .ModalCardButton{
-    max-height: 0px;
-    margin-bottom: 0 !important;
-  }
-  .Arrow{
-    transition: all 0.2s;
-    display: inherit;
-    transform: rotate(0deg);
-  }
-  .Arrow.open{
-    transform: rotate(180deg);
-  }
-  .ClassOpenButton{
-    background: none;
-    border: none;
-    outline: none;
-    padding: 0;
-    margin: 0;
-    width: 40px;
-    height: 40px;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 16px;
+    padding-left: 40px;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+
+    .ClassHeaderText {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 22px;
+      color: #FFFFFF;
+    }
+
+    .ClassOpenButton {
+      background: none;
+      display: none;
+      border: inherit;
+
+      .Arrow {
+        display: none;
+      }
+    }
   }
+
+  .bodyCard {
+    .TrajectorySmallHeader {
+      color: #6E6D79;
+      font-weight: 500;
+      font-size: 12px;
+      margin: 0;
+      margin-bottom: 16px;
+    }
+
+    .SemestersRow {
+      margin-right: 40px;
+      margin-left: 14px;
+      height: 100%;
+      width: calc(100% - 80px);
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+
+      .SemesterCol {
+        position: relative;
+        padding-top: 56px;
+        padding-bottom: 28px;
+        padding-left: 0;
+        padding-right: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: flex-start;
+        flex-grow: 2;
+        max-width: 50%;
+
+        &.On {
+          flex-grow: 2;
+        }
+
+        &.Off {
+          flex-shrink: 0;
+        }
+
+        .SemesterSeparator {
+          position: absolute;
+          height: 100%;
+          width: 1px;
+          top: 0;
+          left: 12px;
+          background: rgba(255, 255, 255, 0.2);
+          z-index: -1;
+        }
+
+        .BottomDisclosure {
+          background: inherit;
+          border: inherit;
+          width: 100%;
+          text-align: left;
+          padding-left: inherit;
+          padding-right: inherit;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: stretch;
+
+          .ModalCardButton {
+            outline: none !important;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 12px;
+
+            .DisciplineCardWrapper {
+              transition: all 0.3s;
+              max-width: 280px;
+              flex-shrink: 0;
+              overflow: hidden;
+              border-radius: 8px;
+
+              .DisciplineCard {
+                background: white;
+                border-radius: 8px;
+                padding: 12px;
+                max-width: 280px;
+                width: max-content;
+                font-weight: 500;
+                font-size: 14px;
+                cursor: pointer;
+                flex-shrink: 0;
+
+                .DisciplineCardType {
+                  color: var(--color-10-dark);
+                  font-size: 11px;
+                  font-weight: 600;
+                  position: relative;
+                  padding-left: 4px;
+                  display: flex;
+                  align-items: center;
+
+                  &.optional {
+                    color: var(--color-3-dark);
+                  }
+
+                  &.optional::before {
+                    background: var(--color-3-dark);
+                  }
+
+                  &::before {
+                    position: absolute;
+                    left: 0px;
+                    content: "";
+                    width: 2px;
+                    height: 2px;
+                    border-radius: 1px;
+                    background: var(--color-10-dark);
+                    font-size: 4px;
+                  }
+
+                  span {
+                    padding-right: 10px;
+                    font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 12px;
+                    line-height: 12px;
+                  }
+                }
+
+                .ChangeType {
+                  font-family: 'Inter';
+                  font-style: normal;
+                  font-weight: 400;
+                  font-size: 10px;
+                  line-height: 12px;
+                  color: #6E6D79;
+                }
+
+                .discipline-card-name {
+                  min-height: 30px;
+                  word-wrap: break-word;
+                  line-height: 20px;
+                  color: black;
+                  z-index: 1;
+                  padding-left: 12px;
+                  font-size: 14px;
+                  position: relative;
+                  display: flex;
+                  align-items: flex-end;
+                  justify-content: flex-start;
+
+                  &.optional::before {
+                    background: var(--color-3-dark);
+                  }
+
+                  &.optional {
+                    padding-left: 12px;
+                    font-size: 14px;
+                  }
+
+                  &::before {
+                    position: absolute;
+                    left: 0px;
+                    content: "";
+                    width: 2px;
+                    height: 100%;
+                    border-radius: 1px;
+                    background: var(--color-10-dark);
+                    font-size: 4px;
+                  }
+                }
+              }
+            }
+
+            .discipline-arrow {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+              width: 100%;
+              height: 2px;
+              left: 0;
+              background: white;
+              flex-shrink: 10;
+
+              .DisciplineArrowPointer {
+                position: absolute;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mobileBottomWrapper, .Semester {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+  .ClassCard .bodyCard .SemestersRow .SemesterCol .BottomDisclosure .DisciplineCard {
+    max-width: 190px !important;
+    min-width: 190px !important;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .ClassCard {
+    margin-bottom: 16px;
+    border-radius: 12px;
+    position: relative;
+
+    &.open .bodyCard {
+      max-height: calc(100vh);
+      transition: all 0.5s;
+    }
+
+    .ClassHeader {
+      position: relative;
+      top: unset;
+      left: unset;
+      padding-left: 16px;
+
+      .ClassOpenButton {
+        background: none;
+        border: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .Arrow {
+          &.open {
+            transform: rotate(180deg);
+          }
+
+          transition: all 0.2s;
+          display: inherit;
+          transform: rotate(0deg);
+        }
+      }
+    }
+
+    .bodyCard {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.5s;
+
+      .Semester {
+        width: 100%;
+        color: white;
+        display: flex;
+        padding: 0px 16px;
+        justify-content: space-between;
+        overflow: hidden;
+        transition: all 0.2s;
+        max-height: 30px;
+
+        .TrajectorySmallHeader {
+          font-size: 14px;
+          font-weight: bold;
+          color: white;
+        }
+      }
+
+      .SemestersRow {
+        margin-right: 16px;
+        width: auto;
+
+        .SemesterCol {
+          transition: all 0.3s;
+          padding-top: 4px;
+          padding-bottom: 20px;
+          flex-grow: unset;
+          max-width: unset;
+
+          .SemesterSeparator {
+            display: none;
+          }
+
+          .BottomDisclosure {
+            transition: all 0.2s;
+
+            &.On {
+              .ModalCardButton .DisciplineCardWrapper {
+                .discipline-card-name {
+                  transition: all 0.2s;
+                }
+
+                .DisciplineCardType span {
+                  transition: all 0.2s;
+                  transform: translateX(0px);
+                }
+              }
+            }
+
+            &.Off {
+              .ChangeType {
+                opacity: 0;
+              }
+
+              .ModalCardButton {
+                .DisciplineCardWrapper {
+                  max-width: 26px;
+
+                  .DisciplineCardType span {
+                    transition: all 0.2s;
+                    transform: translateX(10px);
+                  }
+
+                  .discipline-card-name {
+                    transition: all 0.2s;
+                    padding-left: 20px;
+                    span{
+                      opacity: 0;
+                    }
+                  }
+                }
+
+                .DisciplineCard {
+                  margin-bottom: inherit;
+                  border-radius: inherit;
+                }
+              }
+            }
+
+            .ModalCardButton {
+              margin-bottom: 12px;
+              overflow: hidden;
+              transition: all 0.3s;
+              max-height: 200px;
+
+              .DisciplineCardWrapper {
+
+                .DisciplineCard {
+                  max-width: 200px;
+                  min-width: 190px;
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+
+    .first_semesters_disciplines {
+      width: calc(100% - 200px);
+    }
+
+    .second_semesters_disciplines {
+      width: max-content;
+
+      .BottomDisclosure {
+        display: flex;
+        align-content: flex-start;
+        align-items: flex-start;
+      }
+    }
+  }
+
+
 }

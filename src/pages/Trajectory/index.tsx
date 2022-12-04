@@ -42,15 +42,15 @@ const Trajectory = (props: TrajectoryPropType) => {
   const courseQuery = +(searchParams.get('course') || '1')
 
   useEffect(() => {
+    const courseNumber = searchParams.get('course')
     let widthOfCourceLabel = 80
     if (isMobile) {
       widthOfCourceLabel = 44
     }
-
-    const courseNumber = searchParams.get('course')
     if (courseNumber === '5') {
+      console.log(2)
       setSelectorLeftOffset("calc(100% - 80px)")
-    }
+    } else
     setSelectorLeftOffset(`${(widthOfCourceLabel * (courseQuery - 1))}px`)
   }, [isMobile, searchParams.get('course')]);
 
@@ -88,6 +88,7 @@ const Trajectory = (props: TrajectoryPropType) => {
       navigate(`/trajectory?id=${trajectory.id}&course=${course}`)
       if (course === 5) {
         setBg('#F1F2F8')
+
       } else {
         setBg('white')
       }
@@ -152,7 +153,7 @@ const Trajectory = (props: TrajectoryPropType) => {
             className="Mobile"
             course={trajectory.courses.find(course => course.course === courseQuery)}
           />
-          <div className="col-8 MobileBlock">
+          <div className="MobileBlock">
             <div className={`mobileBottomWrapper`}>
               <div className="BottomButtonsCurs">
                 <button className="buttonCourse" onClick={openStatsModal}>
@@ -186,7 +187,6 @@ const Trajectory = (props: TrajectoryPropType) => {
               )
             })
             }
-            <div style={{marginBottom: '100px'}}/>
           </div>
         </div>
       }
