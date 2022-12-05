@@ -222,7 +222,7 @@ const ProfessionDetails = () => {
                 </div>
                 {presets.selected.length > 0 &&
                   <div onClick={editSkillSets} className="edit-button">
-                    <div className="edit-button-icon"> <MagicWand width={14} height={14}/></div>
+                    <div className="edit-button-icon"> <MagicWand width={18} height={18}/></div>
                     <span className="edit-button-text">Редактировать</span>
                   </div>
                 }
