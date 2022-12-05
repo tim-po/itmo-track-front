@@ -3,6 +3,10 @@
   margin: 0 auto;
   margin-top: 24px;
 
+  .semesterSeason{
+    position: relative;
+  }
+
   .titleNameDiscipline {
     display: flex;
     align-items: center;
@@ -109,6 +113,7 @@
       font-weight: 500;
       font-size: 12px;
       margin: 0;
+      //width: 50%;
       margin-bottom: 16px;
     }
   }
@@ -136,7 +141,7 @@
           .CourseButton {
             width: 14px;
             &.CourseButtonActive{
-              width: inherit;
+              width: 50px;
             }
             .Course {
               min-width: 50px;

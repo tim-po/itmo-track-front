@@ -151,10 +151,10 @@ const ProfessionDetails = () => {
                 <div className="profession-data">
                   {!profession &&
                     <>
-                      {makeEmptyList(40).map(index => {
+                      {makeEmptyList(40).map((_, index) => {
                         return (
                           <div
-                            key="n"
+                            key={index}
                             className="skeleton"
                             style={{'width': Math.floor(Math.random() * (100 - 30 + 1)) + 30 + 'px', 'height': '12px'}}
                           />
@@ -221,10 +221,10 @@ const ProfessionDetails = () => {
                   }
                 </div>
                 {presets.selected.length > 0 &&
-                  <div onClick={editSkillSets} className="edit-button">
-                    <div className="edit-button-icon"> <MagicWand width={18} height={18}/></div>
+                  <button onClick={editSkillSets} className="edit-button">
+                    <div className="edit-button-icon"> <MagicWand width={20} height={20}/></div>
                     <span className="edit-button-text">Редактировать</span>
-                  </div>
+                  </button>
                 }
               </div>
               <LoadingScreen header="Подбираем траектории" isLoading={isLoading}/>
@@ -240,15 +240,15 @@ const ProfessionDetails = () => {
                     }</div>
                   }
                 </div>
-                <div onClick={editKeywords} className="edit-button">
-                  <div className="edit-button-icon"> <MagicWand width={14} height={14}/></div>
+                <button onClick={editKeywords} className="edit-button">
+                  <div className="edit-button-icon"> <MagicWand width={20} height={20}/></div>
                   <span className="edit-button-text">Редактировать</span>
-                </div>
+                </button>
               </div>
               <div className="keywordsRequired" id="blob-0-bottom-right">
                 {(!profession || !profession.related_keywords.length) &&
                   <>
-                    {makeEmptyList(20).map(index => {
+                    {makeEmptyList(20).map((_, index) => {
                       return (
                         <div
                           key={index}

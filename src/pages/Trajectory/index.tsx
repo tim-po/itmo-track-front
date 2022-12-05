@@ -14,6 +14,7 @@ import ModalContext from "../../Context/Modal";
 import TrajectoryStats from "../../components/trajectory/TrajectoryStats";
 import Card from "../../components/trajectory/Card";
 import './index.scss'
+import {LocalStorageInteraction, withLocalStorage} from "../../utils/general";
 
 // CONSTANTS
 
@@ -55,7 +56,7 @@ const Trajectory = (props: TrajectoryPropType) => {
   }, [isMobile, searchParams.get('course')]);
 
   useEffect(() => {
-    setNewBackButtonProps("Все траектории", "modules/header/setHeaderText")
+    setNewBackButtonProps("Все траектории", `trajectories?ids=${withLocalStorage({chosenTrajectoriesIds: []}, LocalStorageInteraction.load).chosenTrajectoriesIds}`)
     getTrajectory()
     setBg('white')
     // setTimeout(() => this.isDisplayTool = true, 1500)
@@ -78,7 +79,6 @@ const Trajectory = (props: TrajectoryPropType) => {
       }
     })
   }
-
   if (!trajectory) {
     return <LoadingScreen isLoading={true} header={'Траектория загружается'}/>
   }
@@ -162,16 +162,20 @@ const Trajectory = (props: TrajectoryPropType) => {
               </div>
             </div>
             <div className="flex-row flex-block pl-5 semesterSeason">
-              <div>
-                <p className="flex-column flex-block TrajectorySmallHeader mt-3"
-                   id="!checkMobi() && 'blob-0-top-left'">Осенний
-                  семестр</p>
-              </div>
-              <div>
-                <p className="flex-column flex-block TrajectorySmallHeader mt-3"
-                   id="!checkMobi() && 'blob-1-top-left'">Весенний
-                  семестр</p>
-              </div>
+              <p
+                className="flex-column flex-block TrajectorySmallHeader mt-3"
+                id="!checkMobi() && 'blob-0-top-left'"
+                style={{flexGrow: 2}}
+              >
+                Осенний семестр
+              </p>
+              <p
+                className="flex-column flex-block TrajectorySmallHeader mt-3"
+                id="!checkMobi() && 'blob-1-top-left'"
+                style={{flexGrow: 2}}
+              >
+                Весенний семестр
+              </p>
             </div>
 
             {trajectory.courses.find(course => course.course === courseQuery)?.classes.map(sphere => {

@@ -9,40 +9,64 @@ type TrajectoryDisciplineModalPropType = {
   id: number
 }
 
+enum DisciplineMovement {
+  left = 'left',
+  right = 'right',
+  none = 'none'
+}
+
 const TrajectoryDisciplineModal = (props: TrajectoryDisciplineModalPropType) => {
 
   const {id} = props
   const [searchParams] = useSearchParams()
   const [trajectoryDisciplineData, setTrajectoryDisciplineData] = useState<TrajectoryDisciplineType | undefined>(undefined)
-  const [sortedPrevDisciplines, setSortedPrevDisciplines] = useState<string[]>([])
+  const [sortedPrevDisciplines, setSortedPrevDisciplines] = useState<{ id: number, name: string, semester:number }[]>([])
+  const [sortedNextDisciplines, setSortedNextDisciplines] = useState<{ id: number, name: string, semester: number }[]>([])
+  const [replacementOptions, setReplacementOptions] = useState<{ id: number, name: string }[]>([]);
+  const [filteredReplacementOptions, setFilteredReplacementOptions] = useState<{ id: number, name: string }[]>([]);
   const [isOtherReplacementOptionsOpen, setIsOtherReplacementOptionsOpen] = useState<boolean>(false)
+  const [movement, setMovement] = useState<DisciplineMovement>(DisciplineMovement.none)
+
+  const [initialDisciplineId, setInitialDisciplineId] = useState<number>(0)
+
 
   const getDisciplineData = async (disciplineId?: number) => {
     try {
       const response = await axios.get(`${BASE_URL}trajectory_disciplines/${disciplineId ? disciplineId : id}/`)
       setTrajectoryDisciplineData(response.data)
+      setMovement(DisciplineMovement.none)
     } catch (e) {
       console.log(e)
     }
   }
 
   const sortPrevDisciplines = () => {
-    const sortedDisciplines: string[] = []
-
-    if (trajectoryDisciplineData && trajectoryDisciplineData.prev_disciplines?.length) {
-      trajectoryDisciplineData.prev_disciplines.forEach(function (entry) {
-        sortedDisciplines.push(entry.name)
-      });
+    if (!trajectoryDisciplineData || !trajectoryDisciplineData.prev_disciplines) {
+      return []
     }
 
-    const result = sortedDisciplines.reduce((acc: string[], item) => {
-      if (acc.includes(item)) {
-        return acc;
-      }
-      return [...acc, item];
-    }, [])
+    const result = trajectoryDisciplineData.prev_disciplines.sort(itemInner => Math.abs(itemInner.semester - trajectoryDisciplineData.semester)).reverse()
 
-    setSortedPrevDisciplines(result)
+    if(result[0]){
+      setSortedPrevDisciplines([result[0]])
+    }else{
+      setSortedPrevDisciplines([])
+    }
+  }
+
+  const sortNextDisciplines = () => {
+    if (!trajectoryDisciplineData || !trajectoryDisciplineData.next_disciplines) {
+      return []
+    }
+
+    console.log(trajectoryDisciplineData.next_disciplines)
+
+    const result = trajectoryDisciplineData.next_disciplines.sort(itemInner => Math.abs(trajectoryDisciplineData.semester - itemInner.semester)).reverse()
+    if(result[0]){
+      setSortedNextDisciplines([result[0]])
+    }else{
+      setSortedNextDisciplines([])
+    }
   }
 
   const toggleReplacementOptions = () => {
@@ -54,17 +78,36 @@ const TrajectoryDisciplineModal = (props: TrajectoryDisciplineModalPropType) => 
   }, [])
 
   useEffect(() => {
-    sortPrevDisciplines()
+    if(initialDisciplineId === 0 && trajectoryDisciplineData){
+      setInitialDisciplineId(trajectoryDisciplineData.id)
+    }
   }, [trajectoryDisciplineData])
 
+  useEffect(() => {
+    sortPrevDisciplines()
+    sortNextDisciplines()
+    if(trajectoryDisciplineData && trajectoryDisciplineData.replacement_options){
+      setReplacementOptions([{id: trajectoryDisciplineData.id, name:trajectoryDisciplineData.name}, ...trajectoryDisciplineData.replacement_options])
+    }
+  }, [trajectoryDisciplineData])
+
+  useEffect(() => {
+    if (trajectoryDisciplineData) {
+      setFilteredReplacementOptions(replacementOptions.filter(item => item.id != trajectoryDisciplineData.id))
+    }
+  }, [replacementOptions, trajectoryDisciplineData])
+
   return (
-    <div className="containerDiscipline">
+    <div className={`containerDiscipline move-${movement}`}>
       {trajectoryDisciplineData &&
         <>
           <div
             className="disciplineImage"
             style={{background: `${colors[trajectoryDisciplineData.class]}`}}
           >
+            <h3 className={'ModalClassHeaderText'}>
+              {trajectoryDisciplineData.class}
+            </h3>
             <div className="subjectsFlex">
               {trajectoryDisciplineData.prev_disciplines?.length ?
                 <p className="TextCenter modalColHeader">
@@ -73,11 +116,17 @@ const TrajectoryDisciplineModal = (props: TrajectoryDisciplineModalPropType) => 
                 :
                 ''
               }
-              <div>
+              <div style={{position: 'relative'}}>
                 {sortedPrevDisciplines.map(sortedDiscipline => (
-                  <div className="disciplineCardModal mb-2 mx-auto">
-                    {sortedDiscipline}
-                  </div>
+                  <button
+                    key={sortedDiscipline.semester}
+                    className="disciplineCardModal mx-auto"
+                    onClick={() => {
+                      getDisciplineData(sortedDiscipline.id)
+                    }}
+                  >
+                    {sortedDiscipline.name}
+                  </button>
                 ))}
               </div>
             </div>
@@ -86,15 +135,16 @@ const TrajectoryDisciplineModal = (props: TrajectoryDisciplineModalPropType) => 
             >
               <p
                 className="TextCenter modalColHeader">
-                {searchParams.get('course')} курс
+                {trajectoryDisciplineData.semester} семестр
               </p>
               <div>
                 <button
+                  key={trajectoryDisciplineData.semester}
                   className="disciplineCardModal mx-auto"
                   onClick={toggleReplacementOptions}
                 >
                   {trajectoryDisciplineData.name}
-                  {trajectoryDisciplineData.replacement_options?.length ?
+                  {filteredReplacementOptions.length ?
                     <img
                       src="/static/arrowBottom.svg"
                       alt="arrow"
@@ -104,14 +154,17 @@ const TrajectoryDisciplineModal = (props: TrajectoryDisciplineModalPropType) => 
                     ''
                   }
                 </button>
-                {trajectoryDisciplineData.replacement_options?.length ?
+                {filteredReplacementOptions.length ?
                   <div
                     className={`disciplineCardModal fallingDiscipline mx-auto mt-3 replacement_options ${isOtherReplacementOptionsOpen ? 'open' : 'close'}`}
                   >
-                    {trajectoryDisciplineData.replacement_options.map(replacementOption => (
+                    {filteredReplacementOptions.map(replacementOption => (
                       <button
-                        className="discipline"
-                        onClick={() => getDisciplineData(replacementOption.id)}
+                        className={`discipline ${initialDisciplineId === replacementOption.id ? 'selected': ''}`}
+                        onClick={() => {
+                          toggleReplacementOptions()
+                          getDisciplineData(replacementOption.id)
+                        }}
                       >
                         {replacementOption.name}
                       </button>
@@ -123,23 +176,26 @@ const TrajectoryDisciplineModal = (props: TrajectoryDisciplineModalPropType) => 
               </div>
             </div>
             <div className="subjectsFlex">
-              {trajectoryDisciplineData.next_disciplines?.length ?
+              {sortedNextDisciplines.length ?
                 <p
-                  className={`TextCenter modalColHeader ${trajectoryDisciplineData.next_disciplines.length ? '' : 'displayNone'}`}>
+                  className={`TextCenter modalColHeader`}>
                   Где пригодится
                 </p>
                 :
                 ''
               }
-              {trajectoryDisciplineData.next_disciplines?.length ?
+              {sortedNextDisciplines.length ?
                 <div>
-                  {trajectoryDisciplineData.next_disciplines.map(nextDiscipline => (
-                    <div
-                      // className="disc ? furtherUse= true  ''"
-                      className="disciplineCardModal mb-2 mx-auto"
+                  {sortedNextDisciplines.map(nextDiscipline => (
+                    <button
+                      key={nextDiscipline.semester}
+                      className="disciplineCardModal mx-auto"
+                      onClick={() => {
+                        getDisciplineData(nextDiscipline.id)
+                      }}
                     >
                       {nextDiscipline.name}
-                    </div>
+                    </button>
                   ))}
                 </div>
                 :
@@ -178,8 +234,8 @@ const TrajectoryDisciplineModal = (props: TrajectoryDisciplineModalPropType) => 
                 }
               </span>
                 <span className="disciplineDetail disciplineDetailYellow">
-              {trajectoryDisciplineData.control}
-            </span>
+                  {trajectoryDisciplineData.control}
+                </span>
               </div>
             </div>
             <p className="modalKeywordsHeader">
@@ -188,9 +244,8 @@ const TrajectoryDisciplineModal = (props: TrajectoryDisciplineModalPropType) => 
                 className="modalKeywordsCoverage"
                 style={{color: `${colors[trajectoryDisciplineData.class]}`}}
               >
-               Пересечение с ключевыми словами
-                {Math.round(trajectoryDisciplineData.keywords_coverage * 100)}%
-            </span>
+                {` Пересечение с ключевыми словами ${Math.round(trajectoryDisciplineData.keywords_coverage * 100)}%`}
+              </span>
             </p>
             <div className={'aligned-keywords-wrapper'}>
               {trajectoryDisciplineData.keywords_aligned_with_user.map(keyword => (

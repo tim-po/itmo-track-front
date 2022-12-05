@@ -4,6 +4,28 @@
   overflow: inherit;
   background: white;
   position: relative;
+  //overflow: hidden;
+
+  &.move-left{
+    .disciplineCardModal{
+      transform: translateX(-150%);
+    }
+  }
+
+  &.move-right{
+    .disciplineCardModal{
+      transform: translateX(150%);
+    }
+  }
+}
+
+.ModalClassHeaderText{
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
 .aligned-keywords-wrapper {
@@ -39,10 +61,37 @@
   margin: auto;
   /*max-width: none;*/
   max-width: initial;
-  padding-bottom: 12px;
+  padding: 12px;
+  //padding-bottom: 12px;
   background: inherit;
   border: inherit;
-  border-bottom: 1px solid #E7E8EE;;
+  border-top: 1px solid #E7E8EE;
+  position: relative;
+
+  &:first-child{
+    border-top: 1px solid rgba(231, 232, 238, 0);
+    //padding-bottom: 8px;
+  }
+
+  &.selected{
+    border: 2px dashed #7328E2;
+    border-radius: 8px;
+    margin-bottom: 16px;
+
+    &:after{
+      content: 'Выбранна для тебя';
+      color: #7328E2;
+      font-weight: bold;
+      font-size: 12px;
+      position: absolute;
+      bottom: calc(100% - 8px);
+      border-radius: 8px;
+      background: white;
+      left: 8px;
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+  }
 }
 
 .arrow-card {
@@ -55,23 +104,30 @@
 }
 
 .disciplineCardModal {
+  transition: all 0.4s;
+  transform: translateX(0);
   width: max-content;
   color: #1F1F22;
 }
 
-.replacement_options.Open {
+.replacement_options.open {
   box-shadow: 0px 26px 11px rgba(100, 53, 165, 0.01), 0px 15px 9px rgba(100, 53, 165, 0.03), 0px 7px 7px rgba(100, 53, 165, 0.05), 0px 0px 4px rgba(100, 53, 165, 0.06), 0px 0px 0px rgba(100, 53, 165, 0.06);
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.replacement_options {
+  transform-origin: top;
+  transition: all 0.3s;
+  transform: scaleY(0);
   border-radius: 8px;
-  gap: 16px;
+  //gap: 16px;
   position: absolute;
   left: 0;
   right: 0;
-}
-
-.close.replacement_options {
-  display: none;
+  box-shadow: 0px 26px 11px rgba(100, 53, 165, 0.0), 0px 15px 9px rgba(100, 53, 165, 0.0), 0px 7px 7px rgba(100, 53, 165, 0.0), 0px 0px 4px rgba(100, 53, 165, 0.0), 0px 0px 0px rgba(100, 53, 165, 0.0);
   opacity: 0;
-  max-height: 12px;
+  //max-height: 12px;
 }
 
 .subjectsFlex {

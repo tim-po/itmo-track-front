@@ -18,6 +18,18 @@
 .trajectoryHeader {
   font-weight: 700;
   font-size: 20px;
+  position: relative;
+
+
+  .eduDirectionCode{
+    display: block;
+    font-weight: normal;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: #6e6d79;
+    font-size: 12px;
+  }
 }
 
 .TrajectoriesCardFooter{
@@ -46,6 +58,9 @@
   border-radius: 16px;
   cursor: pointer;
   scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   .CourseCardControlCard{
     box-shadow: none !important;
@@ -135,7 +150,7 @@
 }
 
 .keywordsWrapper {
-  max-height: 82px;
+  //max-height: 82px;
   overflow: hidden;
 }
 .hideButton {
@@ -159,18 +174,17 @@
   overflow: hidden;
   background-position: center;
   z-index: 1000;
-  right: 8px;
+  right: -20px;
   top: calc(50% - 20px);
   width: 40px;
   height: 40px;
   border: none;
   border-radius: 50%;
   box-shadow: 0px 26px 11px rgba(100, 53, 165, 0.01), 0px 15px 9px rgba(100, 53, 165, 0.03), 0px 7px 7px rgba(100, 53, 165, 0.05), 0px 0px 4px rgba(100, 53, 165, 0.06), 0px 0px 0px rgba(100, 53, 165, 0.06);
-}
-
-.ScrollBtn.Left{
-  right: unset;
-  left: 8px;
+  &.Left{
+    left: -20px;
+    right: unset;
+  }
 }
 
 .trajectoryCardWrapper.Hidden .ScrollBtn.Right{
@@ -254,13 +268,13 @@
     min-width: 100%;
   }
   .ScrollBtn{
-    top: calc(100% - 40px - 100px);
+    top: calc(100%);
   }
   .trajectoryCardWrapper.Hidden .ScrollBtn.Right{
-    top: calc(100% - 80px);
+    top: calc(100% + 20px);
   }
   .trajectoryCardWrapper.HiddenLeft .ScrollBtn.Left{
-    top: calc(100% - 80px);
+    top: calc(100% + 20px);
   }
 
   .trajectoryCardWrapper{
@@ -293,12 +307,11 @@
     margin: 0 0 20px ;
   }
   .trajectoryHeader{
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 22px; /* or 138% */
     color: #1F1F22;
+    position: relative;
   }
   .smallTitle{
     font-family: 'Inter';

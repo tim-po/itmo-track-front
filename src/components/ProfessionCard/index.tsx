@@ -62,7 +62,9 @@ const ProfessionCard = (props: ProfessionCardPropType) => {
       <div className="cardData">
         <h4 className="professionCardTitle">{profession.name}</h4>
         <div className="professionCardKeywords">
-          {profession.visible_keywords.map((keyword, index) => {
+          {profession.visible_keywords.sort((word1, word2) => {
+            return (word1.text.length - word2.text.length)
+          }).map((keyword, index) => {
             return (
               <div
                 key={keyword.id}

@@ -26,8 +26,6 @@ const ShowMoreKeywordsButton = styled.button`
   color: #8533FF;
   border-radius: 8px;
   padding: 8px 12px;
-  margin-right: 8px;
-  margin-bottom: 8px;
   font-weight: 500;
   font-size: 12px;
   opacity: 1;

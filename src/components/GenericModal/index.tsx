@@ -52,7 +52,7 @@ const GenericModal = (props: GenericModalPropType) => {
         }
         <div className={`d-block TextCenter ${blockContent ? 'activ': ''}`}>
           <button className="ImgCloseBtn" onClick={onModalClose}>
-            {colorCloseWhite ?  <Close width={12} height={12} color="white" /> : <Close width={12} height={12}  />}
+            <Close width={12} height={12} color={colorCloseWhite ? 'white': undefined} />
           </button>
           {children}
         </div>

@@ -20,6 +20,7 @@ export type PresetType = {
 
 export type TrajectoryType = {
   id: string
+  code: string
   educational_plan: string
   coverage: number
   student: number
@@ -90,10 +91,12 @@ export type DiplomaShareDataType = {
 export type NextOrPrevDisciplinesType = {
   id: number
   name: string
+  semester: number
 }
 
 export type TrajectoryDisciplineType = {
   class: string
+  semester: number
   control: string
   id: number
   keywords: string[]

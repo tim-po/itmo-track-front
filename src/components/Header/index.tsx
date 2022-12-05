@@ -16,7 +16,7 @@ type HeaderPropType = {
 
 const Header = (props: HeaderPropType) => {
   const {left} = props;
-  const leftBlocks = ['/professions', '/']
+  const leftBlocks = ['/professions', '/', '/diplomaShare']
   const [isHeaderPreAnimated, setIsHeaderPreAnimated] = useState(leftBlocks.includes(window.location.pathname))
 
   const navigate = useNavigate()

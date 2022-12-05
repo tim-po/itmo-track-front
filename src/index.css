@@ -150,3 +150,24 @@ body {
         background-color: rgba(184, 184, 184, .7);
     }
 }
+
+.fullWidth {
+    width: 100vw !important;
+    padding-left: 32px;
+    transform: translateX(-32px);
+    padding-right: 32px;
+}
+
+@media screen and (max-width: 1000px) {
+    .fullWidth {
+        transform: translateX(-16px);
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .fullWidthMobile {
+        transform: translateX(-16px);
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}

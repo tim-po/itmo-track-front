@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://track.la.itmo.su/api/'
+export const BASE_URL = process.env.REACT_APP_API_URL
 export const COLORS_BY_CATEGORY: {[key: string]: string} = {
   'Программирование': 'var(--color-7-light)',
   'Менеджмент': 'var(--color-10-light)',

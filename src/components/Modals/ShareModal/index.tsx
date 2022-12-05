@@ -34,9 +34,7 @@ const ShareModal = (props: ShareModalPropType) => {
   return (
     <div className="shareModalContainer">
       <div className="shareModalHeaderContainer">
-        <div>
-          <PicShareDeck/>
-        </div>
+        <img style={{width: '100%'}} src={'/static/shareBg.svg'}/>
       </div>
       <div className="shareContent">
         <div className="shareContentHeader">Поделиться</div>

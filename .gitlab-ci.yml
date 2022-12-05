@@ -1,0 +1,74 @@
+stages:
+  - build
+  - deploy
+
+before_script:
+  - cp $APP_ENV $CI_PROJECT_DIR/.env
+
+.build-template: &build
+  stage: build
+  tags:
+    - shell
+  script:
+    - echo "Build the project on branch $CI_COMMIT_REF_NAME"
+    - docker build .
+      --build-arg DOMAIN=$DOMAIN
+      --build-arg TAG=$TAG
+      --tag itmo-track-frontend:$TAG
+      --no-cache
+    - echo "Build completed."
+
+build-dev:
+  <<: *build
+  variables:
+    TAG: dev
+    DOMAIN: dev.track.la.itmo.su
+  environment: development
+  only:
+    - dev
+
+build-prod:
+  <<: *build
+  variables:
+    TAG: prod
+    DOMAIN: track.la.itmo.su
+  environment: production
+  only:
+    - master
+
+.deploy-template: &deploy
+  stage: deploy
+  tags:
+    - shell
+  script:
+    - docker container stop itmo-track-frontend-$TAG || true
+    - docker container rm itmo-track-frontend-$TAG || true
+    - docker run
+      --device=/dev/net/tun
+      --cap-add NET_ADMIN
+      --network web
+      --publish $PORT:3000
+      --name itmo-track-frontend-$TAG
+      --detach
+      itmo-track-frontend:$TAG
+
+    - echo "Application successfully deployed."
+
+deploy-dev:
+  <<: *deploy
+  variables:
+    TAG: dev
+    PORT: 3001
+  environment: development
+  only:
+    - dev
+
+deploy-prod:
+  <<: *deploy
+  variables:
+    TAG: prod
+    PORT: 3000
+  environment: production
+  when: manual
+  only:
+    - master

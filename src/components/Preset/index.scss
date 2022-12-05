@@ -7,7 +7,7 @@
   width: 390px;
   max-height: 100%;
   flex-grow: 3;
-  min-width: 450px;
+  min-width: min(calc(100vw - 30px), 450px);
   max-width: 50%;
   position: relative;
   animation: presetAppear 0.2s ease-out;
