@@ -8,6 +8,8 @@ import BgContext from "../../Context/Background";
 import * as Scroll from "react-scroll";
 import KeywordsSearch from "../KeywordsSearch";
 import Magnifier from "images/icons/magnifier";
+import GenericModal from "../GenericModal";
+import RandomFeedback from "../Modals/feedback/randomFeedback";
 
 // CONSTANTS
 const randomFeedbackSelectOptions = [
@@ -35,6 +37,7 @@ type KeywordsPropType = {
 
 const Keywords = (props: KeywordsPropType) => {
   const {keywords} = props
+
 
   const {setBg} = useContext(BgContext)
   const [requiredWordsLimit, setRequiredWordsLimit] = useState(0);
@@ -143,16 +146,8 @@ const Keywords = (props: KeywordsPropType) => {
           </div>
         </div>
       </div>
-      {/*<ModalTooltip*/}
-      {/*  v-if="isTool"*/}
-      {/*  handelClick="hideTooltip"*/}
-      {/*  countOfElement="isEditing ? [0,1]  [0]"*/}
-      {/*  position="!isEditing ? 'topRight'  'center01'"*/}
-      {/*  text=" isEditing ? 'Теперь ты можешь удалять и добавлять навыки (ключевые слова)' */}
-      {/*  `Мы подобрали навыки, необходимые для присета ${profession.name}`"*/}
-      {/*/>*/}
-      {/*<RandomFeedback display-for-group="8" button=buttonFeedback*/}
-      {/*                title="Что-то на этой странице вызвало трудности? "/>*/}
+        {/*<RandomFeedback displayForGroup="8"*/}
+        {/*                title="Что-то на этой странице вызвало трудности?"/>*/}
     </div>
   )
 };

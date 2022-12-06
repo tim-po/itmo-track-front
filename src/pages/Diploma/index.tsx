@@ -18,6 +18,7 @@ import ControlTypeModal from "../../components/Modals/ControlTypeModal";
 import {DiplomaDataType} from "types";
 import DisciplinesModal from "../../components/Modals/DisciplinesModal";
 import Share from "../../images/icons/share";
+import RandomFeedback from "../../components/Modals/feedback/randomFeedback";
 
 type DiplomaPropType = {}
 
@@ -34,7 +35,11 @@ const Diploma = (props: DiplomaPropType) => {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
   const [searchParams] = useSearchParams()
-
+  const randomFeedbackSelectOptions = [
+    'Поиск ключевых слов 🔎️',
+    'Добавление/ удаление слов 🗑',
+    'Все сложно  🤯', 'Все понятно 👌'
+  ]
   const getDiplomaData = async () => {
     try {
       const response = await axios.get(`${BASE_URL}trajectories/${searchParams.get('id')}/diploma/`)
@@ -145,7 +150,7 @@ const Diploma = (props: DiplomaPropType) => {
             </div>
           </div>
         </div>
-        {/*<RandomFeedback display-for-group="5" button=buttonFeedback title="Что бы ты добавил в диплом?"/>*/}
+        <RandomFeedback display-for-group="5" selectButtons={randomFeedbackSelectOptions} title="Что бы ты добавил в диплом?"/>
         {/*<RandomFeedback display-for-group="6" button=buttonFeedbackTho title="Ты хотел бы сохранить результат?"/>*/}
         {/*<RandomFeedback display-for-group="7" isSecondary="true" button=buttonFeedbackTrack*/}
         {/*                title="Тебе понравилась составленная траектория?"/>*/}

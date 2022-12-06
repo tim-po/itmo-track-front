@@ -208,7 +208,7 @@ const Trajectories = () => {
           </div>
         )
       })}
-      {/*<RandomFeedback display-for-group="1" button=randomFeedback.firstOptionSelectButton*/}
+      {/*<Random display-for-group="1" button=randomFeedback.firstOptionSelectButton*/}
       {/*                title="Как тебе предложенные программы? "/>*/}
       {/*<RandomFeedback display-for-group="2" button=randomFeedback.secondOptionSelectButton*/}
       {/*                title="Что-то на этой странице вызвало трудности? "/>*/}

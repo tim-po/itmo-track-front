@@ -10,6 +10,8 @@ import './index.scss'
 import BgContext from "../../Context/Background";
 import {LocalStorageInteraction, makeEmptyList, withLocalStorage} from "../../utils/general";
 import Close from "../../images/icons/close";
+import FeedbackStatic from "../../components/Modals/feedback/feedbackStatic";
+// import FeedbackForm from
 
 // CONSTANTS
 
@@ -111,15 +113,15 @@ const Professions = () => {
         </div>
       </div>
 
-      {/*<GenericModal*/}
-      {/*  onModalClose={() => setIsFeedbackFormVisible(false)}*/}
-      {/*  modal={isFeedbackFormVisible}*/}
-      {/*  hideMobile={true}*/}
-      {/*  colorCloseWhite={false}*/}
-      {/*  hideDesktop={false}*/}
-      {/*>*/}
-      {/*  <FeedbackForm onmodalClose="disciplineModalVisibleFunc()"/>*/}
-      {/*</GenericModal>*/}
+      <GenericModal
+        onModalClose={() => setIsFeedbackFormVisible(false)}
+        modal={isFeedbackFormVisible}
+        hideMobile={true}
+        colorCloseWhite={false}
+        hideDesktop={false}
+      >
+        <FeedbackStatic/>
+      </GenericModal>
     </div>
   )
 };
